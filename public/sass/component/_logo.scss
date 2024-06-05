@@ -1,26 +1,41 @@
 @use "../abstract/variables" as *;
+@use "../abstract/mixins" as *;
 
 .logo {
   display: flex;
   align-self: center;
   text-decoration: none;
+  position: relative;
+  z-index: 250;
 
   &__img {
     max-width: 100%;
     height: auto;
+    margin-right: .15rem;
   }
 
   &__text {
-    font-family: var(--font-body);
+    font-family: $font-body;
     text-transform: capitalize;
-    color: var(--primary);
+    color: $primary;
+
+    &-box{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-top: -.5rem;
+    }
 
     &--big {
-      font-size: $lg-text;
+      font-size: $sm-text;
       font-weight: 600;
       position: relative;
       text-align: center;
+      text-transform: uppercase;
 
+      @include breakpoints(mq-sm){
+        font-size: $lg-text;
+      }
 
       &::before {
         position: absolute;
@@ -31,26 +46,29 @@
         height: 2px;
         content: "";
         display: block;
-        border-bottom: 1px solid $border;
+        border-bottom: 1px solid rgba($primary, .5);
       }
     }
 
     &--sm {
-      margin-top: 0.5rem;
       font-size: $xs-text;
-      margin-top: 0.5rem;
+      margin-top: .5rem;
+
+      @include breakpoints(mq-sm){
+        font-size: $sm-text;
+      }
     }
   }
 
-  &--light {
-    &__text {
-      color: $light;
-    }
-  }
-
-  &--dark {
-    &__text {
+  &--dark{
+    .logo__text{
       color: $primary;
     }
+  }
+
+  &--light{
+   .logo__text{
+    color: $light;
+   }
   }
 }

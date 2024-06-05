@@ -54,11 +54,26 @@ $max-width: 1440px;
 $sm-gutter: 0.8rem;
 $sm-base: 1rem;
 $md-base: 2rem;
-$bp-xs: 320px;
-$bp-sm: 576px;
-$bp-md: 768px;
-$bp-lg: 992px;
-$bp-xl: 1200px;
 $doc-height: 100%;
 $header-height-1: calc(100vh - 11.5rem);
 $header-height-2: calc(100vh - 8.5rem);
+$bp-sm: 36rem;
+$bp-md: 48rem;
+$bp-lg: 64rem;
+$bp-xl: 75rem;
+$bp-2xl: 85.375rem;
+$bp-3xl: 120rem; 
+$bp-4xl: 160rem;
+$breakpoints: (
+  "mq-sm": "(min-width: #{$bp-sm})",
+  "mq-md": "(min-width: #{$bp-md})",
+  "mq-lg": "(min-width: #{$bp-lg})",
+  "mq-xl": "(min-width: #{$bp-xl})",
+  "mq-2xl": "(min-width: #{$bp-2xl})",
+  "mq-3xl": "(min-width: #{$bp-3xl})",
+  "mq-4xl": "(min-width: #{$bp-4xl})",
+  "mq-retina": "(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)"
+);
+$queries: ("mq-md": 3.5, "mq-lg":4, "mq-xl":4.5, "mq-2xl":5, "mq-3xl":5.5, "mq-4xl":6);
+
+$sm-container-spacings: ("mq-sm": 3, "mq-md": 3.5, "mq-lg":4, "mq-xl":4.5, "mq-2xl":5, "mq-3xl":5.5, "mq-4xl":6);
