@@ -1,0 +1,17 @@
+
+mixin navLink(href, title, isMobile, currentUrl)
+    - const defaultLink = 'nav__link';
+    - const link = `${isMobile ? `${defaultLink} nav__link--mobile` : defaultLink}`;
+    a(href=link class={active: currentUrl === href} class=link)= title
+
+
+mixin logo(mode)
+    a(href="/" class=`logo ${mode}`)
+        picture.logo__img
+            source(media="max-width: 568px" srcSet='/images/kellex-logo-xs.png')
+            source(media="min-width: 568px" srcSet='/images/kellex-logo-sm.png')
+            img(src='/images/kellex-logo-sm.png' alt="kellex schools logo" sizes="(max-width: 568px) 25px, 40px").logo__img
+        .logo__text-box 
+            p.logo__text.logo__text--big Kellex schools
+            p.logo__text.logo__text--sm Nursery. primary. high school
+

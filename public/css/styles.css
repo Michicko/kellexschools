@@ -13,7 +13,7 @@ html {
 }
 
 body {
-  font-family: var(--font-body);
+  font-family: "Roboto", "Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   font-size: 1.6rem;
 }
 
@@ -36,6 +36,64 @@ body {
 
 .skip-link:focus {
   transform: translateY(0);
+}
+
+.logo {
+  display: flex;
+  align-self: center;
+  text-decoration: none;
+}
+.logo__img {
+  max-width: 100%;
+  height: auto;
+}
+.logo__text {
+  font-family: var(--font-body);
+  text-transform: capitalize;
+  color: var(--primary);
+}
+.logo__text--big {
+  font-size: 1.8rem;
+  font-weight: 600;
+  position: relative;
+  text-align: center;
+}
+.logo__text--big::before {
+  position: absolute;
+  bottom: -0.3rem;
+  left: 0.7rem;
+  right: 0;
+  width: 90%;
+  height: 2px;
+  content: "";
+  display: block;
+  border-bottom: 1px solid rgba(204, 204, 204, 0.5);
+}
+.logo__text--sm {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+}
+.logo--light__text {
+  color: #fff;
+}
+.logo--dark__text {
+  color: #1c2c4b;
+}
+
+.nav {
+  height: 8rem;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  padding: 0 2rem;
+}
+.nav > *:last-child {
+  margin-left: auto;
+}
+.nav__links {
+  display: none;
 }
 
 /*# sourceMappingURL=styles.css.map */
