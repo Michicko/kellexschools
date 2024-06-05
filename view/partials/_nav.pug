@@ -1,1 +1,11 @@
-nav 
+include _mixins.pug
+- const navLinks = [{title:"about", link: '/about-us'}, {title:"admissions", link: "/admissions"},{title: "academics", link: "academics"},{title: "life at kellex", link: "/life-at-kellex"},{title:"gallery", link: "/gallery"}]
+nav.nav#nav 
+    +logo('dark')
+    .nav__links
+            each item in navLinks
+                +navLink(item.link, item.title, false, currentUrl)
+    .nav__mobile 
+        .nav__links.nav__links--mobile  
+            each item in navLinks
+                +navLink(item.link, item.title, true, currentUrl) 

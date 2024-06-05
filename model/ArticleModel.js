@@ -16,6 +16,7 @@ const articleSchema = new Schema(
     author: {
       type: String,
       required: true,
+      lowercase: true
     },
     location: {
       type: String,
@@ -23,6 +24,7 @@ const articleSchema = new Schema(
     body: {
       type: String,
       required: true,
+      trim: true,
     },
   },
   {

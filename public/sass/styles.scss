@@ -1,6 +1,13 @@
 
 // astract
-@use './abstract/variable';
+@use './abstract/variables';
 
 // base
 @use './base/base';
+
+// components
+@use './component/logo';
+
+// layouts
+@use './layout/nav';
+

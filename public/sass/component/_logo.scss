@@ -1,0 +1,56 @@
+@use "../abstract/variables" as *;
+
+.logo {
+  display: flex;
+  align-self: center;
+  text-decoration: none;
+
+  &__img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  &__text {
+    font-family: var(--font-body);
+    text-transform: capitalize;
+    color: var(--primary);
+
+    &--big {
+      font-size: $lg-text;
+      font-weight: 600;
+      position: relative;
+      text-align: center;
+
+
+      &::before {
+        position: absolute;
+        bottom: -0.3rem;
+        left: 0.7rem;
+        right: 0;
+        width: 90%;
+        height: 2px;
+        content: "";
+        display: block;
+        border-bottom: 1px solid $border;
+      }
+    }
+
+    &--sm {
+      margin-top: 0.5rem;
+      font-size: $xs-text;
+      margin-top: 0.5rem;
+    }
+  }
+
+  &--light {
+    &__text {
+      color: $light;
+    }
+  }
+
+  &--dark {
+    &__text {
+      color: $primary;
+    }
+  }
+}
