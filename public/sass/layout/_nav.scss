@@ -1,4 +1,5 @@
 @use "../abstract/variables" as *;
+@use "../abstract/mixins" as *;
 
 .nav {
   height: 8rem;
@@ -7,17 +8,265 @@
   align-items: center;
   background: $light;
   padding: 0 2rem;
+  border-bottom: 1px solid $border;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: $light;
+  z-index: 250;
 
   & > *:last-child {
     margin-left: auto;
   }
 
-  &__mobile{
+  &__mobile {
+    position: absolute;
+    top: 8rem;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    background: $light;
+    z-index: 200;
+    transition: height 0.5s ease;
+
+    @include breakpoints(mq-lg) {
+      display: none;
+    }
+
+    &.isMobileOpened {
+      height: calc(100vh - 8rem);
+      overflow-y: auto;
+      padding-bottom: 4rem;
+      @include hideScrollBar();
+    }
+  }
+
+  &__link {
+    font-size: $lg-text;
+    font-weight: 500;
+    color: $primary;
+    text-decoration: none;
+    display: inline-block;
+    padding: 1.5rem 2rem;
+
+    @include breakpoints(mq-lg) {
+      font-size: $base-text;
+      padding: 0;
+      margin: 0 2.5rem;
+    }
+
+    &:hover,
+    &--active {
+      color: $secondary;
+    }
+  }
+
+  &__item{
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 100%;
+
+    &-box{
+      justify-content:space-between;
+      align-items: center;
+      display: flex;
+      padding-right: 2rem;
+      width: 100%;
+
+      @include breakpoints(mq-lg) {
+        padding-right: 0; 
+        margin: 0 2.5rem;
+      }
+    }
+
+    &-btn{
+      border: none;
+      outline: none;
+      background: transparent;
+      margin-left: 1.5rem;
+      cursor: pointer;
+      margin-top: .3rem;
     
+    }
+
+    &-arrow{
+      height: 2.5rem;
+      width: 2.5rem;
+      color: $primary-dark;
+      fill: $primary-dark;
+      transition: transform .4s ease-in;
+
+      @include breakpoints(mq-lg) {
+        height: 2rem;
+        width: 2rem;
+      }
+    }
+
+    &:hover &-arrow{
+      @include breakpoints(mq-lg) {
+        transform: rotateX(180deg);
+        transform-origin: center;
+      }
+    }
+
+    &-btn.rotated &-arrow{
+      transform: rotateX(180deg);
+      transform-origin: center;
+    }
+
+    &--mobile{
+      width: 100%;
+      justify-content:flex-start;
+      display: flex;
+      flex-direction: column;
+    }
+
+    &-children{
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      min-width: 20rem;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      height: 0;
+      overflow-y: hidden;
+      transition: height .4s ease-in;
+
+      &.isOpened{
+        overflow-y: unset;
+      }
+    }
+
+    @include breakpoints(mq-lg) {
+      &-children{
+        border: 1px solid $border;
+        border-top: 0;
+
+        &>*:not(:last-child){
+          border-bottom: 1px solid $border;
+        }
+      }
+
+      &:hover &-children{
+        height: auto;
+      }
+    }
+  }
+  
+  &__item--mobile &__item-children{
+    position: relative;
+    min-width: unset;
+    padding-left: 2rem;
+    background: rgba($border, .2);
   }
 
-  &__links{
-    display: none;
+  &__item-children .nav__link{
+    @include breakpoints(mq-lg) {
+      padding: 1.5rem 2rem;
+     }
   }
 
+
+  &__item .nav__link{
+   margin: 0;
+
+ 
+  }
+
+  &__links {
+    display: flex;
+    align-items: center;
+    background: $light;
+    
+    &--desktop {
+      display: none;
+      height: 100%;
+
+      @include breakpoints(mq-lg) {
+        display: flex;
+        margin-left: auto;
+      }
+    }
+
+    &--mobile {
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      width: 100%;
+
+   
+      &>*:last-child{
+        margin-top: 1.5rem;
+      }
+    }
+  }
+
+  &__btn-box{
+    width: 100%;
+    padding: 0 2rem;
+    padding-bottom: 2rem;
+  }
+
+  &__btn {
+    height: 3rem;
+    width: 3rem;
+    background: transparent;
+    outline: none;
+    border: none;
+    position: relative;
+    z-index: 200;
+
+    @include breakpoints(mq-lg) {
+      display: none;
+    }
+
+    .line,
+    .line::before,
+    .line::after {
+      height: 3px;
+      width: 100%;
+      background: $primary-dark;
+    }
+
+    .line {
+      position: relative;
+      transition: background 0.15s ease-in;
+
+      &::before,
+      &::after {
+        position: absolute;
+        content: "";
+        display: block;
+        transition: all 0.4s ease-in;
+      }
+
+      &::before {
+        top: -1rem;
+      }
+
+      &::after {
+        bottom: -1rem;
+      }
+    }
+
+    &--active .line {
+      background: transparent;
+    }
+
+    &--active .line::before {
+      top: 0;
+      transform: rotate(45deg);
+    }
+
+    &--active .line::after {
+      bottom: 0;
+      transform: rotate(-45deg);
+    }
+  }
 }

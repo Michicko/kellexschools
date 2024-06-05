@@ -1,0 +1,27 @@
+@use '../abstract/variables' as *;
+
+@mixin breakpoints($value){
+    $my-map: map-get($breakpoints, $value );
+    @if $my-map{
+        @media (#{$my-map}) {
+            @content;
+        }
+    }@else{
+        @error "Oops, the breakpoint #{$value} does not exist";
+    }
+}
+
+
+@mixin hideScrollBar{
+    
+    /* Firefox */
+    scrollbar-width: none;
+    /* IE 10+ */
+    -ms-overflow-style: none;
+  
+    /* Chrome/Safari/Webkit */
+    &::-webkit-scrollbar {
+      background: transparent;
+      width: 0;
+    }
+  }

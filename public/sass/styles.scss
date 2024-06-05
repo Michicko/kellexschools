@@ -1,13 +1,16 @@
 
 // astract
 @use './abstract/variables';
+@use './abstract/mixins';
 
 // base
 @use './base/base';
 
 // components
 @use './component/logo';
+@use './component/button';
 
 // layouts
 @use './layout/nav';
+@use './layout/header';
 

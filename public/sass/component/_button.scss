@@ -1,0 +1,40 @@
+@use'../abstract/variables' as *;
+@use'../abstract/mixins' as *;
+
+
+.btn{
+    display: block;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    padding: 1rem 3rem;
+    text-align: center;
+    text-transform: capitalize;
+
+    &--primary{
+        background: $primary;
+        color: $light;
+
+
+        &:hover{
+            background: $primary-dark;
+        }
+    }
+
+    &--secondary{
+        background: $secondary;
+        color: $light;
+
+        &:hover{
+            background: $secondary-dark;
+        }
+    }
+
+    &--full-w{
+        width: 100%;
+    }
+
+    &--sm{
+        // padding: 1rem 2rem;
+    }
+}
