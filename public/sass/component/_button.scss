@@ -1,40 +1,39 @@
-@use'../abstract/variables' as *;
-@use'../abstract/mixins' as *;
+@use "../abstract/variables" as *;
+@use "../abstract/mixins" as *;
 
+.btn {
+  display: block;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  padding: 1rem 3rem;
+  text-align: center;
+  text-transform: capitalize;
 
-.btn{
-    display: block;
-    text-decoration: none;
-    border: none;
-    outline: none;
-    padding: 1rem 3rem;
-    text-align: center;
-    text-transform: capitalize;
+  &--primary {
+    background: $primary;
+    color: $light;
 
-    &--primary{
-        background: $primary;
-        color: $light;
-
-
-        &:hover{
-            background: $primary-dark;
-        }
+    &:hover {
+      background: $primary-dark;
     }
+  }
 
-    &--secondary{
-        background: $secondary;
-        color: $light;
+  &--secondary {
+    background: $secondary;
+    color: $light;
 
-        &:hover{
-            background: $secondary-dark;
-        }
+    &:hover {
+      background: $secondary-dark;
     }
+  }
 
-    &--full-w{
-        width: 100%;
-    }
+  &--full-w {
+    width: 100%;
+  }
 
-    &--sm{
-        // padding: 1rem 2rem;
-    }
+  @include multiplier("padding-top", 1rem);
+  @include multiplier("padding-bottom", 1rem);
+  @include multiplier("padding-left", 3rem);
+  @include multiplier("padding-right", 3rem);
 }

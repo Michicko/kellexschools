@@ -1,0 +1,30 @@
+@use '../abstract/variables' as *;
+@use '../abstract/mixins' as *;
+
+
+.socials{
+    display: flex;
+    flex-direction: column;
+
+    &>*:not(:last-child){
+        margin-bottom: 1rem;
+    }
+
+    &__link{
+        text-decoration: none;
+        outline: none;
+        border: none;
+    }
+
+    &__icon{
+        height: 2.5rem;
+        width: 2.5rem;
+        fill: $primary-dark;
+        @include multiplier('height', 2.5rem);
+        @include multiplier('width', 2.5rem);
+    }
+
+    &__link:hover &__icon{
+        fill: $secondary;
+    }
+}

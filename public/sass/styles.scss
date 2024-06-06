@@ -5,12 +5,19 @@
 
 // base
 @use './base/base';
+@use './base/typography';
 
 // components
 @use './component/logo';
 @use './component/button';
+@use './component/socials';
 
 // layouts
 @use './layout/nav';
 @use './layout/header';
+@use './layout/container';
+@use './layout/sidebar';
+
+// utils
+@use './utils/utils' ;
 

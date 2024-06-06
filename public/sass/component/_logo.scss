@@ -11,7 +11,7 @@
   &__img {
     max-width: 100%;
     height: auto;
-    margin-right: .15rem;
+    margin-right: 0.15rem;
   }
 
   &__text {
@@ -19,11 +19,13 @@
     text-transform: capitalize;
     color: $primary;
 
-    &-box{
+    &-box {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      margin-top: -.5rem;
+      margin-top: -0.5rem;
+
+      @include multiplier("margin-left", 0.5);
     }
 
     &--big {
@@ -33,9 +35,11 @@
       text-align: center;
       text-transform: uppercase;
 
-      @include breakpoints(mq-sm){
+      @include breakpoints(mq-sm) {
         font-size: $lg-text;
       }
+
+      @include multiplier("font-size", $lg-text);
 
       &::before {
         position: absolute;
@@ -46,29 +50,30 @@
         height: 2px;
         content: "";
         display: block;
-        border-bottom: 1px solid rgba($primary, .5);
+        border-bottom: 1px solid rgba($primary, 0.5);
       }
     }
 
     &--sm {
       font-size: $xs-text;
-      margin-top: .5rem;
+      margin-top: 0.5rem;
 
-      @include breakpoints(mq-sm){
+      @include breakpoints(mq-sm) {
         font-size: $sm-text;
       }
+      @include multiplier("font-size", $sm-text);
     }
   }
 
-  &--dark{
-    .logo__text{
+  &--dark {
+    .logo__text {
       color: $primary;
     }
   }
 
-  &--light{
-   .logo__text{
-    color: $light;
-   }
+  &--light {
+    .logo__text {
+      color: $light;
+    }
   }
 }

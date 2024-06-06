@@ -9,9 +9,10 @@ mixin logo(mode)
     - const logoMode = mode === 'dark' ? 'logo--dark' : 'logo--light'
     a(href="/" class=`logo ${logoMode}`)
         picture
-            source(media="(max-width: 568px)", srcset='/images/kellex-logo-xs.png')
+            source(media="(min-width: 1440px)", srcset='/images/kellex-logo-lg.PNG')
             source(media="(min-width: 568px)", srcset='/images/kellex-logo-sm.png')
-            img(src='/images/kellex-logo-sm.png' sizes="(max-width: 568px)25px, 40px" alt="kellex schools logo").logo__img
+            source(media="(max-width: 568px)", srcset='/images/kellex-logo-xs.png')
+            img(src='/images/kellex-logo-lg.PNG' sizes="(max-width: 1366px) 25px, 40px, 55px" alt="kellex schools logo").logo__img
         div(class='logo__text-box') 
             p.logo__text.logo__text--big Kellex schools
             p.logo__text.logo__text--sm Nursery. primary. high school
@@ -27,3 +28,17 @@ mixin navItem(item, isMobile, currentUrl)
         .nav__item-children 
             each innerItem in item.children 
                 +navLink(innerItem.link, innerItem.title, true, currentUrl) 
+
+mixin image(name, alt, mimeType)
+    picture 
+        source(media="(min-width: 1920px)", srcset=`/images/${name}-1920.${mimeType}`)
+        source(media="(min-width: 1766px)", srcset=`/images/${name}-1766.${mimeType}`)
+        source(media="(min-width: 1440px)", srcset=`/images/${name}-1440.${mimeType}`)
+        source(media="(min-width: 1024px)", srcset=`/images/${name}-1024.${mimeType}`)
+        source(media="(min-width: 768px)", srcset=`/images/${name}-768.${mimeType}`)
+        source(media="(min-width: 576px)", srcset=`/images/${name}-576.${mimeType}`)
+        source(media="(min-width: 425px)", srcset=`/images/${name}-425.${mimeType}`)
+        source(media="(min-width: 375px)", srcset=`/images/${name}-375.${mimeType}`)
+        source(media="(min-width: 320px)", srcset=`/images/${name}-320.${mimeType}`)
+        source(media="(max-width: 320px)", srcset=`/images/${name}-xs.${mimeType}`)
+        img(src=`/images/${name}-1920.${mimeType}` alt="kellex schools logo").img
