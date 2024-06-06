@@ -1,23 +1,25 @@
 include _mixins.pug
 - const navLinks = [{title:"About us", link: '/about-us', children:[{title: 'Who We Are', link: 'who-we-are'}, {title: "School Anthem", link:'/school-anthem'}]}, {title:"Admission", link: "/admission"},{title: "Life at Kellex", link: "/life-at-kellex"},{title:"Gallery", link: "/gallery"},{title:"News & Events", link: "/news-and-events"}]
 
-nav.nav#nav 
-    +logo('dark')
-    .nav__links.nav__links--desktop
-            each item in navLinks
-                if item.children 
-                    +navItem(item, false, currentUrl)
-                else 
+nav.nav#nav
+    .nav__sm
+        a(href="/login").btn.btn--sm.btn--primary login 
+    .nav__big
+        +logo('dark')
+        .nav__links.nav__links--desktop
+                each item in navLinks
+                    //- if item.children 
+                    //-     +navItem(item, false, currentUrl)
+                    //- else 
                     +navLink(item.link, item.title, false, currentUrl)
-            a(href="/login").btn.btn--sm.btn--primary login 
-    .nav__mobile 
-        .nav__links.nav__links--mobile  
-            each item in navLinks
-                if item.children 
-                    +navItem(item, true, currentUrl)
-                else 
+        .nav__mobile 
+            .nav__links.nav__links--mobile  
+                each item in navLinks
+                    //- if item.children 
+                    //-     +navItem(item, true, currentUrl)
+                    //- else 
                     +navLink(item.link, item.title, true, currentUrl)
-            .nav__btn-box 
-                a(href="/login").btn.btn--sm.btn--primary.btn--full-w login 
-    button.nav__btn.hamburger-menu
-        .line 
+                .nav__btn-box 
+                    a(href="/login").btn.btn--sm.btn--primary.btn--full-w login 
+        button.nav__btn.hamburger-menu
+            .line 

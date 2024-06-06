@@ -1,0 +1,38 @@
+@use "../abstract/variables" as *;
+@use "../abstract/mixins" as *;
+
+.heading {
+
+  &--primary {
+    font-size: $xxl-text;
+    font-family: $font-body;
+    font-weight: 700;
+    color: $primary-100;
+    line-height: 1;
+
+    @include breakpoints(mq-sm) {
+        font-size: clamp($xxl-text, 7.5vmax, 7.5rem);
+        line-height: 1.2;
+    }
+  }
+
+  &--flex {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.lead{
+    font-size: $xl-text;
+    font-family: $font-body;
+    font-weight: 400;
+    color: $primary-100;
+    text-transform: capitalize;
+    line-height: 1;
+
+    
+    @include breakpoints(mq-sm) {
+        font-size: $xxl-text;
+        line-height: 1.2;
+    }
+}

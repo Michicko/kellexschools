@@ -6,9 +6,21 @@ html(lang="en")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         link(rel="stylesheet", href="/css/styles.css")
         title Kellex Schools | Benin City - Nursery / Montessori, Basic School
-    body 
-        include ./partials/_nav.pug
-        block content
-        header.header 
-            h1 Home page
+    body
+        aside.sidebar 
+            include ./partials/_socials.pug     
+        .container
+            include ./partials/_nav.pug
+            block content
+            header.header.header__40-60.header__40-60--secondary 
+                .header__text-box 
+                    h1.heading.heading--primary.heading--flex 
+                        span Kellex 
+                        span Schools 
+                    p.lead Shaping Your Children’s Future
+                    a(href="/about").link About our school 
+                .header__img-box
+                    +image('landing-header', 'welcome to kellex school', 'jpg')
+            section.section.section__why 
+
         include ./partials/_scripts

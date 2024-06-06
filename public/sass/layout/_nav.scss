@@ -2,19 +2,42 @@
 @use "../abstract/mixins" as *;
 
 .nav {
-  height: 8rem;
   width: 100%;
-  display: flex;
-  align-items: center;
+  margin-bottom: 1rem;
   background: $light;
   padding: 0 2rem;
-  border-bottom: 1px solid $border;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  position: relative;
   background: $light;
-  z-index: 250;
+  height: 8rem;
+
+  @include breakpoints(mq-lg) {
+    height: 15rem;
+    padding: 0;
+  }
+
+  @include multiplier('height', 15rem);
+
+  &__sm {
+    height: 6rem;
+    width: 100%;
+    justify-content: flex-end;
+    align-items: center;
+    display: none;
+    @include breakpoints(mq-lg) {
+      display: flex;
+    }
+    @include multiplier('height', 6rem);
+  }
+
+  &__big {
+    height: 8rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include multiplier('height', 8rem);
+  }
+
 
   & > *:last-child {
     margin-left: auto;
@@ -46,7 +69,7 @@
 
   &__link {
     font-size: $lg-text;
-    font-weight: 500;
+    font-weight: 400;
     color: $primary;
     text-decoration: none;
     display: inline-block;
@@ -55,8 +78,9 @@
     @include breakpoints(mq-lg) {
       font-size: $base-text;
       padding: 0;
-      margin: 0 2.5rem;
     }
+
+    @include multiplier('font-size', $base-text);
 
     &:hover,
     &--active {
@@ -64,41 +88,39 @@
     }
   }
 
-  &__item{
+  &__item {
     display: flex;
     align-items: center;
     position: relative;
     height: 100%;
 
-    &-box{
-      justify-content:space-between;
+    &-box {
+      justify-content: space-between;
       align-items: center;
       display: flex;
       padding-right: 2rem;
       width: 100%;
 
       @include breakpoints(mq-lg) {
-        padding-right: 0; 
-        margin: 0 2.5rem;
+        padding-right: 0;
       }
     }
 
-    &-btn{
+    &-btn {
       border: none;
       outline: none;
       background: transparent;
       margin-left: 1.5rem;
       cursor: pointer;
-      margin-top: .3rem;
-    
+      margin-top: 0.3rem;
     }
 
-    &-arrow{
+    &-arrow {
       height: 2.5rem;
       width: 2.5rem;
       color: $primary-dark;
       fill: $primary-dark;
-      transition: transform .4s ease-in;
+      transition: transform 0.4s ease-in;
 
       @include breakpoints(mq-lg) {
         height: 2rem;
@@ -106,26 +128,19 @@
       }
     }
 
-    &:hover &-arrow{
+    &:hover &-arrow {
       @include breakpoints(mq-lg) {
         transform: rotateX(180deg);
         transform-origin: center;
       }
     }
 
-    &-btn.rotated &-arrow{
+    &-btn.rotated &-arrow {
       transform: rotateX(180deg);
       transform-origin: center;
     }
 
-    &--mobile{
-      width: 100%;
-      justify-content:flex-start;
-      display: flex;
-      flex-direction: column;
-    }
-
-    &-children{
+    &-children {
       position: absolute;
       top: 100%;
       left: 0;
@@ -136,54 +151,54 @@
       flex-direction: column;
       height: 0;
       overflow-y: hidden;
-      transition: height .4s ease-in;
+      transition: height 0.4s ease-in;
+      background: $light;
 
-      &.isOpened{
+      &.isOpened {
         overflow-y: unset;
       }
     }
 
     @include breakpoints(mq-lg) {
-      &-children{
-        border: 1px solid $border;
+      &-children {
+        // border: 1px solid transparent;
         border-top: 0;
 
-        &>*:not(:last-child){
-          border-bottom: 1px solid $border;
+        & > *:not(:last-child) {
+          // border-bottom: 1px solid $border;
         }
       }
 
-      &:hover &-children{
+      &:hover &-children {
         height: auto;
+        border-color: $border;
+        // border-top: 1px solid $border;
       }
     }
   }
-  
-  &__item--mobile &__item-children{
+
+  &__item--mobile &__item-children {
     position: relative;
     min-width: unset;
     padding-left: 2rem;
-    background: rgba($border, .2);
+    background: rgba($border, 0.2);
   }
 
-  &__item-children .nav__link{
+  &__item-children .nav__link {
     @include breakpoints(mq-lg) {
       padding: 1.5rem 2rem;
-     }
+    }
   }
 
-
-  &__item .nav__link{
-   margin: 0;
-
- 
+  &__item .nav__link {
+    margin: 0;
   }
 
   &__links {
     display: flex;
     align-items: center;
     background: $light;
-    
+
     &--desktop {
       display: none;
       height: 100%;
@@ -191,6 +206,10 @@
       @include breakpoints(mq-lg) {
         display: flex;
         margin-left: auto;
+
+        & > *:not(:first-child) {
+          margin-left: 3rem;
+        }
       }
     }
 
@@ -200,14 +219,13 @@
       justify-content: flex-start;
       width: 100%;
 
-   
-      &>*:last-child{
+      & > *:last-child {
         margin-top: 1.5rem;
       }
     }
   }
 
-  &__btn-box{
+  &__btn-box {
     width: 100%;
     padding: 0 2rem;
     padding-bottom: 2rem;
@@ -215,13 +233,16 @@
 
   &__btn {
     height: 3rem;
-    width: 3rem;
+    width: 2.5rem;
     background: transparent;
     outline: none;
     border: none;
     position: relative;
     z-index: 200;
 
+    @include breakpoints(mq-sm) {
+      width: 3rem;
+    }
     @include breakpoints(mq-lg) {
       display: none;
     }
@@ -236,7 +257,8 @@
 
     .line {
       position: relative;
-      transition: background 0.15s ease-in;
+      transition: background 0.4s ease-in;
+      -webkit-transition: background 0.4s ease-in;
 
       &::before,
       &::after {
@@ -244,6 +266,7 @@
         content: "";
         display: block;
         transition: all 0.4s ease-in;
+        -webkit-transition: all 0.4s ease-in;
       }
 
       &::before {
@@ -262,11 +285,13 @@
     &--active .line::before {
       top: 0;
       transform: rotate(45deg);
+      transform-origin: center;
     }
 
     &--active .line::after {
       bottom: 0;
       transform: rotate(-45deg);
+      transform-origin: center;
     }
   }
 }

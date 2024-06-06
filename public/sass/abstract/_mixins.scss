@@ -1,27 +1,35 @@
-@use '../abstract/variables' as *;
+@use "../abstract/variables" as *;
 
-@mixin breakpoints($value){
-    $my-map: map-get($breakpoints, $value );
-    @if $my-map{
-        @media (#{$my-map}) {
-            @content;
-        }
-    }@else{
-        @error "Oops, the breakpoint #{$value} does not exist";
+@mixin breakpoints($value) {
+  $my-map: map-get($breakpoints, $value);
+  @if $my-map {
+    @media (#{$my-map}) {
+      @content;
     }
+  } @else {
+    @error "Oops, the breakpoint #{$value} does not exist";
+  }
 }
 
+@mixin hideScrollBar {
+  /* Firefox */
+  scrollbar-width: none;
+  /* IE 10+ */
+  -ms-overflow-style: none;
 
-@mixin hideScrollBar{
-    
-    /* Firefox */
-    scrollbar-width: none;
-    /* IE 10+ */
-    -ms-overflow-style: none;
-  
-    /* Chrome/Safari/Webkit */
-    &::-webkit-scrollbar {
-      background: transparent;
-      width: 0;
-    }
+  /* Chrome/Safari/Webkit */
+  &::-webkit-scrollbar {
+    background: transparent;
+    width: 0;
   }
+}
+
+$selected: ("mq-3xl":1.2, "mq-extra":1.3, "mq-4xl":1.4);
+
+@mixin multiplier($prop, $val){
+    @each $q, $q-v in $selected{
+        @include breakpoints($q){
+            #{$prop}: $val * $q-v;
+        }
+    }
+}

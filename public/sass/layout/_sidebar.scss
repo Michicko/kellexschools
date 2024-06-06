@@ -1,0 +1,24 @@
+@use "../abstract/variables" as *;
+@use "../abstract/mixins" as *;
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 100vh;
+  z-index: 100;
+  display: flex;
+  align-items: flex-end;
+  padding: 4rem 0;
+  justify-content: center;
+  overflow: hidden;
+
+  @include breakpoints(mq-lg) {
+    width: 8rem;
+    overflow: unset;
+  }
+
+  @include multiplier("width", 8rem);
+}

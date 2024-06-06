@@ -1,8 +1,65 @@
-@use '../abstract/variables' as *;
+@use "../abstract/variables" as *;
+@use "../abstract/mixins" as *;
 
-
-.header{
-    height: 100vh;
+.header {
+  width: 100%;
+  
+  &__40-60{
     width: 100%;
-    padding: 8rem 2rem;
+    height: auto;
+    display: grid;
+    overflow: hidden;
+    grid-template-columns: 100%;
+    grid-auto-rows: 1fr;
+
+    @include breakpoints(mq-lg) {
+      grid-template-columns: 45% 55%;
+    }
+
+    &--secondary{
+     background: $secondary-dark;
+    }
+  }
+
+  &__img{
+    max-width: 100%;
+    height: auto;
+    display: block;
+
+    &-box{
+      order: 1;
+    
+    @include breakpoints(mq-lg) {
+      order: 2;
+    }
+    }
+  }
+
+  &__text-box{
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    color: $light;
+    order: 2;
+
+    &>*:first-child{
+      margin-bottom: 1rem;
+    }
+
+    &>*:last-child{
+      margin-top: 2.5rem;
+    }
+    
+    @include breakpoints(mq-lg) {
+      padding: 0 6rem;
+      order: 1;
+
+      &>*:last-child{
+        margin-top: 4rem;
+      }
+    }
+
+  }
 }
