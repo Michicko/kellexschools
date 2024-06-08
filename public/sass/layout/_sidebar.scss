@@ -18,6 +18,7 @@
   @include breakpoints(mq-lg) {
     width: 8rem;
     overflow: unset;
+    background: transparent
   }
 
   @include multiplier("width", 8rem);

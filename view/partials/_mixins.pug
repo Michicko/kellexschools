@@ -31,9 +31,9 @@ mixin navItem(item, isMobile, currentUrl)
 
 mixin image(name, alt, mimeType)
     picture 
-        source(media="(min-width: 1920px)", srcset=`/images/${name}-1920.${mimeType}`)
         source(media="(min-width: 1766px)", srcset=`/images/${name}-1766.${mimeType}`)
         source(media="(min-width: 1440px)", srcset=`/images/${name}-1440.${mimeType}`)
+        source(media="(min-width: 1200px)", srcset=`/images/${name}-1200.${mimeType}`)
         source(media="(min-width: 1024px)", srcset=`/images/${name}-1024.${mimeType}`)
         source(media="(min-width: 768px)", srcset=`/images/${name}-768.${mimeType}`)
         source(media="(min-width: 576px)", srcset=`/images/${name}-576.${mimeType}`)
@@ -41,4 +41,11 @@ mixin image(name, alt, mimeType)
         source(media="(min-width: 375px)", srcset=`/images/${name}-375.${mimeType}`)
         source(media="(min-width: 320px)", srcset=`/images/${name}-320.${mimeType}`)
         source(media="(max-width: 320px)", srcset=`/images/${name}-xs.${mimeType}`)
-        img(src=`/images/${name}-1920.${mimeType}` alt="kellex schools logo").img
+        img(src=`/images/${name}-1766.${mimeType}` alt="kellex schools logo").img
+
+
+mixin feature(title, icon)
+    .feature 
+        svg.feature__icon
+            use(xlink:href=`/symbol-defs.svg#icon-${icon}`)
+        h3.feature__title #{title}
