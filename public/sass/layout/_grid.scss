@@ -1,0 +1,173 @@
+@use "../abstract/variables" as *;
+@use "../abstract/mixins" as *;
+
+.grid {
+  display: grid;
+  grid-auto-rows: 1fr;
+  position: relative;
+  overflow: hidden;
+
+  &__text-box {
+    z-index: 50;
+
+    &-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      padding-top: 2rem;
+      padding-left: 2rem;
+      padding-right: 2rem;
+      padding-bottom: 2rem;
+
+      & > *:first-child {
+        margin-bottom: 1rem;
+      }
+
+      & > *:last-child {
+        margin-top: 1rem;
+      }
+
+      @include breakpoints(mq-sm) {
+        & > *:first-child {
+          margin-bottom: 2rem;
+        }
+
+        & > *:last-child {
+          margin-top: 3rem;
+        }
+      }
+    }
+
+    @include breakpoints(mq-lg) {
+      &-inner {
+        justify-content: flex-start;
+        max-width: 35rem;
+        padding-right: 4rem;
+        padding-left: 4rem;
+        padding-top: 4rem;
+      }
+    }
+
+    @include breakpoints(mq-xl) {
+      &-inner {
+        max-width: 40rem;
+        padding-left: 6rem;
+        padding-top: 6rem;
+        padding-right: 4rem;
+      }
+    }
+
+    &-inner {
+      @include multiplier("max-width", 40rem);
+      @include multiplier("padding-left", 6rem);
+      @include multiplier("padding-top", 6rem);
+      @include multiplier("padding-right", 6rem);
+
+      & > *:first-child {
+        @include multiplier("margin-bottom", 2rem);
+      }
+
+      & > *:last-child {
+        @include multiplier("margin-top", 3rem);
+      }
+    }
+  }
+
+  &__img-box {
+    position: relative;
+    user-select: none;
+
+    &::before {
+      @include breakpoints(mq-lg) {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 100%;
+        width: 100%;
+        content: "";
+        z-index: 20;
+        background: rgba(#000, 0.4);
+      }
+    }
+
+    &.no-shadow::before{
+      @include breakpoints(mq-lg) {
+        display: none;
+      }
+    }
+  }
+
+  .bg-secondary {
+    background: $secondary;
+
+    &--sm {
+      background: $secondary;
+      @include breakpoints(mq-lg) {
+        background: transparent;
+      }
+    }
+  }
+
+  .bg-secondary-400 {
+    background: $secondary-400;
+    position: relative;
+  }
+
+  .bg-secondary-dark {
+    background: $secondary-dark;
+    position: relative;
+
+    &--sm {
+      background: $secondary-dark;
+      @include breakpoints(mq-lg) {
+        background: transparent;
+      }
+    }
+  }
+
+  .sm-order-1 {
+    order: 1;
+  }
+
+  .sm-order-2 {
+    order: 2;
+  }
+
+  .sm-order-3 {
+    order: 3;
+  }
+
+  .sm-order-4 {
+    order: 4;
+  }
+
+  @include breakpoints(mq-lg) {
+    &--2fr-1fr-lg {
+      grid-template-columns: 2fr 1fr;
+    }
+
+    &--1fr-3x-lg {
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 1fr;
+    }
+
+    &--1fr-2x--lg {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .sm-order-1,
+    .sm-order-2,
+    .sm-order-3, .sm-order-4 {
+      order: unset;
+    }
+
+    .abs-lg {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+}

@@ -1,22 +1,44 @@
 // @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap');
 
 @font-face {
-  font-family: 'Helvetica';
-  src: url('/fonts/Helvetica-Bold.ttf');
+  font-family: "Helvetica";
+  src: url("/fonts/Helvetica-Bold.ttf") format("ttf"),
+    url("/fonts/Helvetica-Bold.woff2") format("woff2"),
+    url("/fonts/Helvetica-Bold.woff") format("woff");
   font-weight: 700;
+  font-display: swap;
+  font-style: normal;
 }
+
 @font-face {
-  font-family: 'Helvetica';
-  src: url('/fonts/Helvetica-light.ttf');
+  font-family: "Helvetica";
+  src: url("/fonts/Helvetica-light.ttf") format("ttf"),
+    url("/fonts/Helvetica-light.woff2") format("woff2"),
+    url("/fonts/Helvetica-light.woff") format("woff");
+  font-weight: 300;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Helvetica";
+  src: url("/fonts/Helvetica.ttf") format("ttf"),
+    url("/fonts/Helvetica.woff2") format("woff2"),
+    url("/fonts/Helvetica.woff") format("woff");
   font-weight: 400;
+  font-display: swap;
+  font-style: normal;
 }
 
 $primary: #3c3b81;
 $primary-dark: #2a295a;
 $primary-light: #88a2d3;
-$primary-100: #e5e5f3;
-$primary-200: #cbcbe7;
+$primary-100: #e9e9f5;
+$primary-200: #d3d3eb;
+$primary-300: #bdbde1;
+$primary-400: #a7a7d7;
 $secondary: #c83339;
+$secondary-400: #d43c2b;
 $secondary-light: #e9aeb1;
 $secondary-dark: #a6180d;
 $neutral: #8386b4;
@@ -43,7 +65,7 @@ $shadow-1: 0 1px 2px rgba(43, 42, 51, 0.05);
 $shadow-2: 0 1px 6px rgba(43, 42, 51, 0.1);
 $shadow-3: 0 1px 6px rgba(43, 42, 51, 0.06);
 $xs-text: 1rem;
-$sm-text: 1.3rem;
+$sm-text: 1.4rem;
 $base-text: 1.6rem;
 $lg-text: 1.8rem;
 $xl-text: 2rem;
@@ -55,8 +77,8 @@ $sm-radius: 0.8rem;
 $base-radius: 1rem;
 $medium-radius: 1.5rem;
 $icon-size: 1rem;
-$font-fallback: "Segoe UI", "Oxygen", "Ubuntu", "Cantarell",
-  "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+$font-fallback: "Segoe UI", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans",
+  "Droid Sans", "Helvetica Neue", sans-serif;
 $font-body: "Helvetica";
 // $font-heading: "Poppins", $font-fallback;
 $heading-letter-spacing: -0.031rem;
@@ -75,7 +97,7 @@ $bp-md: 48rem;
 $bp-lg: 64rem;
 $bp-xl: 75rem;
 $bp-2xl: 85.375rem;
-$bp-3xl: 120rem; 
+$bp-3xl: 120rem;
 $bp-4xl: 160rem;
 $bp-extra: 110rem;
 $breakpoints: (
@@ -87,8 +109,23 @@ $breakpoints: (
   "mq-3xl": "(min-width: #{$bp-3xl})",
   "mq-4xl": "(min-width: #{$bp-4xl})",
   "mq-extra": "(min-width: #{$bp-extra})",
-  "mq-retina": "(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)"
+  "mq-retina": "(-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)",
 );
-$queries: ("mq-md": 3.5, "mq-lg":4, "mq-xl":4.5, "mq-2xl":5, "mq-3xl":5.5, "mq-4xl":6);
+$queries: (
+  "mq-md": 3.5,
+  "mq-lg": 4,
+  "mq-xl": 4.5,
+  "mq-2xl": 5,
+  "mq-3xl": 5.5,
+  "mq-4xl": 6,
+);
 
-$sm-container-spacings: ("mq-sm": 3, "mq-md": 3.5, "mq-lg":4, "mq-xl":4.5, "mq-2xl":5, "mq-3xl":5.5, "mq-4xl":6);
+$sm-container-spacings: (
+  "mq-sm": 3,
+  "mq-md": 3.5,
+  "mq-lg": 4,
+  "mq-xl": 4.5,
+  "mq-2xl": 5,
+  "mq-3xl": 5.5,
+  "mq-4xl": 6,
+);

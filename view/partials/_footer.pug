@@ -1,0 +1,27 @@
+include ./_mixins.pug
+footer.footer
+    .footer__big 
+        .footer__box 
+            +logo('dark')
+            p.footer__text.footer__text--sm 
+              | kellex Schools comprise of kellex Children School and Kellex High School. The schools were established in 2023, by Dr Osa to provide complete and quality education.
+        - const quicklinks = [{name: "Gallery", link: "/gallery"}, {name: "About us", link: "/about"}, {name: "Admission", link: "/admission"}, {name: "News & Events", link: "news-and-event"}]
+        - const academics = [{name: "Curriculum", link: "/academics"}, {name: "Student Portal", link: "https://parent-portal.kellexschools.com"}, {name: "Parent Portal", link: "https://student-portal.kellexschools.com"}, {name: "Staff Portal", link: "https://staff-portal.kellexschools.com"}]
+        .footer__links
+            h4.footer__heading Quicklinks
+            each el in quicklinks 
+                a(href=`${el.link}`).footer__link #{el.name} 
+        .footer__links
+            h4.footer__heading Academics
+            each el in academics 
+                a(href=`${el.link}`).footer__link #{el.name} 
+        .footer__contacts
+            p.footer__text.footer__text--sm Ogba Rd, Benin City 300102, Edo
+            p.footer__text.footer__text--sm +234 8127778301
+            p.footer__text.footer__text--sm admission@kellexschools.com,  
+            p.footer__text.footer__text--sm kellexschools@gmail.com.
+    .footer__sm 
+        p.footer__text.footer__text--sm 
+         | &copy; #{new Date().getFullYear()} Kellex Schools.
+        p.footer__text.footer__text--sm.footer__author created with ❤️ by 
+            a(href="https:github.com/Michicko").footer__link.footer__link--sm.created Michky.

@@ -1,0 +1,38 @@
+@use "../abstract/variables" as *;
+@use "../abstract/mixins" as *;
+
+.section {
+  // padding: 0 2rem;
+
+  h2 {
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+
+  &__why,&__vision {
+    margin-bottom: 5rem;
+  }
+
+
+  @include breakpoints(mq-lg) {
+    h2 {
+      margin-left: 4rem;
+      margin-right: 4rem;
+    }
+
+    &__why,&__vision{
+      margin-bottom: 6rem;
+    }
+  }
+
+  @include breakpoints(mq-xl) {
+    h2 {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    &__why,&__vision{
+      margin-bottom: 8rem;
+    }
+  }
+}

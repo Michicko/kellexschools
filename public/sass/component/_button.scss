@@ -9,6 +9,8 @@
   padding: 1rem 3rem;
   text-align: center;
   text-transform: capitalize;
+  font-size: $base-text;
+  font-weight: 400;
 
   &--primary {
     background: $primary;
@@ -36,4 +38,5 @@
   @include multiplier("padding-bottom", 1rem);
   @include multiplier("padding-left", 3rem);
   @include multiplier("padding-right", 3rem);
+  @include multiplier("font-size", $base-text);
 }

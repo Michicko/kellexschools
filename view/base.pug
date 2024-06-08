@@ -1,4 +1,4 @@
-doctype html
+DOCTYPE 
 html(lang="en")
     head
         meta(charset="UTF-8")
@@ -21,6 +21,54 @@ html(lang="en")
                     a(href="/about").link About our school 
                 .header__img-box
                     +image('landing-header', 'welcome to kellex school', 'jpg')
-            section.section.section__why 
-
-        include ./partials/_scripts
+            section.section.section__why
+                h2.heading.heading--secondary.mb-4 Why Kellex Schools
+                .grid.grid--2fr-1fr-lg
+                    .grid__img-box.sm-order-2 
+                        +image('approach', 'student and teacher in class', 'jpg')
+                    .grid__text-box.bg-secondary-dark--sm.sm-order-3.abs-lg
+                        .grid__text-box-inner 
+                            h3.heading.heading--tertiary.heading--white Our approach 
+                            p.text.text--white I'm a paragraph. Click here to add your own text and edit me. Let your users get to know you.
+                            a.link(href="/about") Learn more 
+                    .grid__text-box.bg-secondary-400.sm-order-1
+                        .grid__text-box-inner 
+                            h3.heading.heading--tertiary.heading--white Admission
+                            p.text.text--white I'm a paragraph. Click here to add your own text and edit me. Let your users get to know you.
+                            a.link(href="/admission") Enroll today
+                .grid.grid--1fr-3x-lg
+                    .grid__img-box.sm-order-1
+                        +image('enhanced', 'students in class', 'jpg')
+                    .grid__text-box.bg-secondary--sm.abs-lg.sm-order-2
+                        .grid__text-box-inner 
+                            h3.heading.heading--tertiary.heading--white Enhanced Learning
+                            p.text.text--white I'm a paragraph. Click here to add your own text and edit me. Let your users get to know you.
+                            a.link(href="/academics") view programs 
+                    .grid__text-box.bg-secondary.sm-order-4
+                        .grid__text-box-inner 
+                            h3.heading.heading--tertiary.heading--white Latest News & Events 
+                            p.text.text--white I'm a paragraph. Click here to add your own text and edit me. Let your users get to know you.
+                            a.link(href="/news-and-events") view all 
+                    .grid__img-box.sm-order-3.no-shadow
+                        +image('group', 'students in class', 'jpg')
+                .grid.grid--1fr-3x-lg
+                    .grid__text-box.bg-secondary-dark.sm-order-2
+                        .grid__text-box-inner 
+                            h3.heading.heading--tertiary.heading--white For the Parents
+                            p.text.text--white I'm a paragraph. Click here to add your own text and edit me. Let your users get to know you.
+                            a.link(href="/academics") Get informed 
+                    .grid__img-box.no-shadow.sm-order-1
+                        +image('students', 'group of students', 'jpg')
+            .section.section__vision
+                - const features = [{title: 'academic excellence', icon: 'academic-excellence'}, {title: 'Vast Curriculum', icon: 'curriculum'}, {title: 'qualified teachers', icon: 'qualified-teachers'}, {title: 'top-level classrooms', icon: 'classroom'}, {title: 'students', icon: 'students'}, {title: 'Conducive Environment', icon: 'secured-environment'}] 
+                h2.heading.heading--secondary.mb-4 We're Making A Difference
+                .grid.grid--1fr-3x-lg.features
+                    each feature in features 
+                        if feature.title == 'students'
+                            .feature.no-padding
+                                +image('students-group', 'students group photo in green and white', 'jpg')
+                        else 
+                            +feature(feature.title, feature.icon)
+                        
+        include ./partials/_scripts.pug
+    include ./partials/_footer.pug

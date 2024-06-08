@@ -27,7 +27,7 @@
 
 
 .link{
-  font-size: $lg-text;
+  font-size: $sm-text;
   font-weight: 500;
   color: $light;
   text-decoration: none;
@@ -35,6 +35,12 @@
   display: block;
   text-transform: capitalize;
   position: relative;
+
+  @include breakpoints(mq-sm) {
+    font-size: $base-text;
+  }
+
+  @include multiplier('font-size', $base-text);
 
   &::before{
     display: block;
@@ -46,11 +52,58 @@
     height: 1px;
     background: $light;
     transition: bottom .2s ease-in;
+
+    @include multiplier('height', 1.5px);
   }
 
   &:hover{
-    &::before{
-      bottom: -1rem;
+    @include breakpoints(mq-lg) {
+      &::before{
+        bottom: -1rem;
+      }
     }
+    
+  }
+}
+
+@for $i from 1 through 10 {
+  .m-#{$i} {
+    padding: #{$i}rem;
+  }
+  .mb-#{$i} {
+    margin-bottom: #{$i}rem;
+  }
+  .mt-#{$i} {
+    margin-top: #{$i}rem;
+  }
+  .mx-#{$i} {
+    margin: 0 #{$i}rem;
+  }
+  .my-#{$i} {
+    margin: #{$i}rem 0;
+  }
+  .mr-#{$i} {
+    margin-right: #{$i}rem;
+  }
+  .p-#{$i} {
+    padding: #{$i}rem;
+  }
+  .pb-#{$i} {
+    padding-bottom: #{$i}rem;
+  }
+  .pt-#{$i} {
+    padding-top: #{$i}rem;
+  }
+  .pr-#{$i} {
+    padding-right: #{$i}rem;
+  }
+  .gap-#{$i} {
+    grid-gap: #{$i}rem;
+  }
+  .column-gap-#{$i} {
+    grid-column-gap: #{$i}rem;
+  }
+  .row-gap-#{$i} {
+    grid-row-gap: #{$i}rem;
   }
 }

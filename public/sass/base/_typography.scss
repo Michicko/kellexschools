@@ -2,17 +2,18 @@
 @use "../abstract/mixins" as *;
 
 .heading {
+  font-family: $font-body;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: capitalize;
 
   &--primary {
     font-size: $xxl-text;
-    font-family: $font-body;
-    font-weight: 700;
     color: $primary-100;
-    line-height: 1;
 
     @include breakpoints(mq-sm) {
-        font-size: clamp($xxl-text, 7.5vmax, 7.5rem);
-        line-height: 1.2;
+      font-size: clamp($xxl-text, 7.5vmax, 7.5rem);
+      line-height: 1.2;
     }
   }
 
@@ -20,19 +21,64 @@
     display: flex;
     flex-direction: column;
   }
+
+  &--secondary {
+    font-size: $xl-text;
+    color: $primary-dark;
+
+    @include breakpoints(mq-sm) {
+      font-size: clamp($xl-text, 4.5vmax, 4.5rem);
+      line-height: 1.2;
+    }
+  }
+
+  &--tertiary {
+    font-size: $lg-text;
+
+    @include breakpoints(mq-sm) {
+      font-size: clamp($lg-text, 3vmax, 3rem);
+      line-height: 1.2;
+    }
+  }
+
+  &--white {
+    color: $light;
+  }
 }
 
-.lead{
-    font-size: $xl-text;
-    font-family: $font-body;
-    font-weight: 400;
-    color: $primary-100;
-    text-transform: capitalize;
-    line-height: 1;
+.lead {
+  font-size: $base-text;
+  font-family: $font-body;
+  font-weight: 400;
+  color: $primary-100;
+  text-transform: capitalize;
+  line-height: 1;
 
-    
-    @include breakpoints(mq-sm) {
-        font-size: $xxl-text;
-        line-height: 1.2;
-    }
+  @include breakpoints(mq-sm) {
+    font-size: $lg-text;
+    line-height: 1.2;
+  }
+
+  @include breakpoints(mq-lg) {
+    font-size: $xxl-text;
+  }
+
+  @include multiplier('font-size', $lg-text);
+}
+
+.text {
+  font-size: $sm-text;
+  font-weight: 400;
+  font-family: $font-body;
+  line-height: 1.6;
+
+  @include breakpoints(mq-sm) {
+    font-size: $base-text;
+  }
+
+  @include multiplier('font-size', $base-text);
+
+  &--white {
+    color: $light;
+  }
 }

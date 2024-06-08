@@ -17,9 +17,15 @@
     }
 
     &__icon{
-        height: 2.5rem;
-        width: 2.5rem;
+        height: 2rem;
+        width: 2rem;
         fill: $primary-dark;
+
+        @include breakpoints(mq-xl) {
+            height: 2.5rem;
+            width: 2.5rem;
+        }
+
         @include multiplier('height', 2.5rem);
         @include multiplier('width', 2.5rem);
     }

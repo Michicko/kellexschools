@@ -1,0 +1,181 @@
+@use "../abstract/variables" as *;
+@use "../abstract/mixins" as *;
+
+.footer {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  padding-right: 2rem;
+  padding-left: 2rem;
+  width: 100%;
+  position: relative;
+
+  @include breakpoints(mq-xl) {
+    padding-left: 8rem;
+    padding-right: 8rem;
+  }
+
+  @include multiplier("padding-left", 8rem);
+  @include multiplier("padding-right", 8rem);
+
+  &__big{
+    width: 100%;
+    display: grid;
+    grid-row-gap: 2rem;
+    padding-bottom: 4rem;
+
+    @include breakpoints(mq-md) {
+        grid-template-columns: repeat(2, auto);
+        grid-column-gap: 2rem;
+        grid-row-gap: 3rem;
+        justify-content: space-between;
+        grid-template-areas: 
+        'box box'
+        'link1 link2'
+        'text text';
+
+        &>*:first-child{
+            grid-area: box;
+        }
+        &>*:nth-child(2){
+            grid-area: link1;
+        }
+        &>*:nth-child(3){
+            grid-area: link2;
+        }
+        &>*:last-child{
+            grid-area: text;
+        }
+    }
+
+    @include breakpoints(mq-md) {
+        grid-template-columns: repeat(4, auto);
+        grid-gap: 4rem;
+        grid-template-areas: unset;
+
+        &>*:first-child,&>*:nth-child(2), &>*:nth-child(3),&>*:last-child{
+            grid-area: unset;
+        }
+
+    }
+
+    
+  @include multiplier("grid-gap", 4rem);
+  @include multiplier(" padding-bottom", 4rem);
+  }
+
+  &__sm{
+    width: 100%;
+    display:grid;
+    padding-top: 2rem;
+    border-top: 1px solid rgba($primary-dark, .2);
+
+    @include breakpoints(mq-sm) {
+        grid-template-columns: repeat(2, auto);
+        justify-content: space-between;
+    }
+
+    @include multiplier("padding-top", 2rem);
+  }
+
+  &__box{
+    max-width: 40rem;
+
+    &>*:first-child{
+      margin-bottom: 1rem;
+    }
+
+    @include breakpoints(mq-md) {
+        max-width: 30rem;
+      }
+
+      @include multiplier("max-width", 30rem);
+  }
+
+  &__contacts{
+    &>*:not(:last-child){
+        margin-bottom: 1rem;
+      }
+
+      @include breakpoints(mq-md) {
+        max-width: 30rem;
+      }
+
+      
+    @include multiplier("max-width", 30rem);
+  }
+
+  &__links{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-row-gap: 1rem;
+
+    @include multiplier("grid-row-gap", 1rem);
+  }
+
+  &__text, &__link{
+    font-weight: 400;
+    color: $primary-dark;
+    font-family: $font-body;
+    line-height: 1.5;
+
+    @include multiplier("line-height", 1.5);
+  }
+
+  &__text{
+    font-size: $sm-text;
+    @include multiplier("font-size", $sm-text);
+  }
+
+  &__link{
+    font-size: $base-text;
+    text-decoration: none;
+
+    &:hover{
+        color: $secondary;
+    }
+
+    &--sm{
+        font-size: $sm-text;
+         @include multiplier("font-size", $sm-text);
+    }
+
+    &--xs{
+        font-size: $xs-text;
+         @include multiplier("font-size", $xs-text);
+    }
+
+    &.created {
+        display: inline-block;
+    }
+
+    @include multiplier("font-size", $base-text);
+  }
+
+  &__heading{
+    font-size: $base-text;
+    font-weight: 700;
+    color: $primary-dark;
+    margin-bottom: 2rem;
+    position: relative;
+
+    &::before{
+        position: absolute;
+        content: '';
+        display: block;
+        width: 5rem;
+        height: 2px;
+        background: $secondary;
+        bottom: -1rem;
+
+        @include multiplier("height", 2px);
+        @include multiplier("width", 5rem);
+        @include multiplier("bottom", -1rem);
+    }
+
+    @include multiplier("font-size", $lg-text);
+  }
+
+  &__author{
+    white-space: nowrap;
+  }
+}

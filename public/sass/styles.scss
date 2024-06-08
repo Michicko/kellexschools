@@ -11,12 +11,16 @@
 @use './component/logo';
 @use './component/button';
 @use './component/socials';
+@use './component/feature';
 
 // layouts
 @use './layout/nav';
 @use './layout/header';
 @use './layout/container';
 @use './layout/sidebar';
+@use './layout/section';
+@use './layout/grid';
+@use './layout/footer';
 
 // utils
 @use './utils/utils' ;

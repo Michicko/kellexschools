@@ -6,6 +6,11 @@
   position: relative;
 
   @include breakpoints(mq-lg) {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  @include breakpoints(mq-xl) {
     padding-left: 8rem;
     padding-right: 8rem;
   }
