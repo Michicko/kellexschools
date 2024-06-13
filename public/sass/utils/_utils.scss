@@ -25,8 +25,7 @@
   display: block;
 }
 
-
-.link{
+.link {
   font-size: $sm-text;
   font-weight: 500;
   color: $light;
@@ -36,33 +35,43 @@
   text-transform: capitalize;
   position: relative;
 
+ 
   @include breakpoints(mq-sm) {
     font-size: $base-text;
   }
 
-  @include multiplier('font-size', $base-text);
+  @include multiplier("font-size", $base-text);
 
-  &::before{
+  &::before {
     display: block;
     position: absolute;
-    content: '';
-    bottom: -.5rem;
+    content: "";
+    bottom: -0.5rem;
     left: 0;
     width: 100%;
     height: 1px;
     background: $light;
-    transition: bottom .2s ease-in;
+    transition: bottom 0.2s ease-in;
 
-    @include multiplier('height', 1.5px);
+    @include multiplier("height", 1.5px);
   }
 
-  &:hover{
+  &.dark{
+    color: $primary-dark;
+
+    &::before{
+      background: $primary-dark;
+    }
+  }
+
+
+
+  &:hover {
     @include breakpoints(mq-lg) {
-      &::before{
+      &::before {
         bottom: -1rem;
       }
     }
-    
   }
 }
 
@@ -106,4 +115,132 @@
   .row-gap-#{$i} {
     grid-row-gap: #{$i}rem;
   }
+
+  .sm-order-#{$i} {
+    order: #{$i};
+
+    @include breakpoints(mq-lg) {
+      order: unset;
+    }
+  }
+}
+
+.abs-lg {
+  @include breakpoints(mq-lg) {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}
+
+
+.bg-secondary {
+  background: $secondary-dark;
+}
+
+.bg-primary-light {
+  background: $primary-100;
+}
+
+.bg-secondary {
+  background: $secondary;
+
+  &--200{
+    background: $secondary-200;
+  }
+
+  &--100{
+    background: $secondary-100;
+  }
+
+  &--sm {
+    background: $secondary;
+    @include breakpoints(mq-lg) {
+      background: transparent;
+    }
+  }
+}
+
+.bg-secondary-400 {
+  background: $secondary-400;
+  position: relative;
+}
+
+.bg-secondary-dark {
+  background: $secondary-dark;
+  position: relative;
+
+  &--sm {
+    background: $secondary-dark;
+    @include breakpoints(mq-lg) {
+      background: transparent;
+    }
+  }
+}
+
+
+.list{
+  list-style: none;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-row-gap: 1rem;
+  padding-left: 1.5rem;
+
+  @include multiplier("padding-left", 1.5rem);
+  @include multiplier("grid-row-gap", 1rem);
+
+ 
+
+  &__item{
+    color: $primary-dark;
+    text-transform: capitalize;
+    font-size: $xl-text;
+    font-weight: 700;
+    position: relative;
+
+    @include breakpoints(mq-lg) {
+      font-size: $xxxl-text;
+    }
+
+    @include breakpoints(mq-xl) {
+      font-size: $xxxxl-text;
+    }
+    @include breakpoints(mq-2xl) {
+      font-size: $xxxxxl-text;
+    }
+
+    @include multiplier("font-size", $xxxxxl-text);
+
+    &::before{
+      position: absolute;
+      top: 50%;
+      left: -1.5rem;
+      content: '';
+      height: .8rem;
+      width: .8rem;
+      border-radius: 50%;
+      background: $secondary;
+      transform: translateY(-50%);
+
+      @include multiplier("left", -1.5rem);
+      @include multiplier("height", .8rem);
+      @include multiplier("width", .8rem);
+    }
+  }
+}
+
+.center{
+  text-align: center;
+}
+
+.flex{
+  display: flex;
+}
+
+.align-center{
+  align-items: center;
+}
+
+.space-between{
+  justify-content: space-between;
 }

@@ -1,0 +1,26 @@
+@use "../abstract/variables" as *;
+@use "../abstract/mixins" as *;
+
+.main {
+  @include breakpoints(mq-lg) {
+    padding-top: 6rem;
+
+    & > * {
+      margin-bottom: 6rem;
+    }
+  }
+
+  @include breakpoints(mq-xl) {
+    padding-top: 8rem;
+
+    & > * {
+      margin-bottom: 8rem;
+    }
+  }
+
+  & > * {
+    @include multiplier("margin-bottom", 8rem);
+  }
+
+  @include multiplier("padding-top", 8rem);
+}

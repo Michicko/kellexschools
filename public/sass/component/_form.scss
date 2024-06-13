@@ -1,0 +1,109 @@
+@use "../abstract/variables" as *;
+@use "../abstract/mixins" as *;
+
+.form {
+  width: 100%;
+  max-width: 96rem;
+  margin: 0 auto;
+  display: grid;
+  grid-gap: 2rem;
+
+  @include breakpoints(mq-lg) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include multiplier("grid-gap", 2rem);
+  @include multiplier('max-width', 96rem);
+
+  &__admission {
+    @include breakpoints(mq-lg) {
+      grid-template-areas:
+        "first second"
+        "third fourth"
+        "fifth sixth"
+        "seventh eigth"
+        "btn btn";
+
+      & > *:first-child {
+        grid-area: first;
+      }
+      & > *:nth-child(2) {
+        grid-area: second;
+      }
+      & > *:nth-child(3) {
+        grid-area: third;
+      }
+      & > *:nth-child(4) {
+        grid-area: fourth;
+      }
+      & > *:nth-child(5) {
+        grid-area: fifth;
+      }
+      & > *:nth-child(6) {
+        grid-area: sixth;
+      }
+      & > *:nth-child(7) {
+        grid-area: seventh;
+      }
+      & > *:nth-child(8) {
+        grid-area: eigth;
+      }
+
+      & > *:last-child {
+        grid-area: btn;
+        justify-self: center;
+      }
+    }
+  }
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__label {
+    margin-bottom: 1rem;
+    @include multiplier("margin-bottom", 1rem);
+  }
+
+  &__input {
+    height: 4rem;
+    width: 100%;
+    outline: none;
+    border: none;
+    padding-left: 1rem;
+    padding-right: 1rem;
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+      -webkit-box-shadow: 0 0 0px 1000px $light inset !important;
+      -webkit-text-fill-color: $primary-dark !important;
+    }
+
+    @include multiplier("height", 4rem);
+    @include multiplier("padding-left", 1rem);
+    @include multiplier("padding-right", 1rem);
+  }
+
+  &__label,
+  &__input {
+    color: $primary-dark;
+    font-size: $sm-text;
+
+    @include breakpoints(mq-sm) {
+      font-size: $base-text;
+    }
+
+    @include multiplier('font-size', $base-text);
+  }
+
+  .required {
+    font-size: $xl-text;
+    font-weight: 500;
+    color: $secondary-dark;
+
+    @include multiplier("font-size",$xl-text);
+  }
+}

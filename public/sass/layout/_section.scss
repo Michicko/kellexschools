@@ -2,17 +2,67 @@
 @use "../abstract/mixins" as *;
 
 .section {
-  // padding: 0 2rem;
+  width: 100%;
 
-  h2 {
+  &__events{
+    .events{
+      &>*:not(:last-child){
+        border-bottom: 1px solid $primary-light;
+        @include multiplier("border-width", 1px);
+      }
+    }
+  }
+
+  &--text{
+    padding: 4rem 2rem;
+
+    @include breakpoints(mq-lg) {
+      padding: 4rem;
+    }
+
+    @include breakpoints(mq-xl) {
+      padding: 6rem;
+    }
+
+    @include multiplier("padding", 6rem);
+  }
+
+  h2,
+  &__staff h3 {
     margin-left: 2rem;
     margin-right: 2rem;
   }
 
-  &__why,&__vision {
-    margin-bottom: 5rem;
+  &__staff {
+    padding-top: 4rem;
+
+    @include breakpoints(mq-lg) {
+      padding-top: 0;
+      padding: 5rem;
+
+      h3 {
+        margin-right: 0;
+        margin-left: 0;
+      }
+    }
+
+    @include breakpoints(mq-xl) {
+      padding: 6rem;
+    }
+
+    @include multiplier("padding", 6rem);
   }
 
+  &__why,
+  &__features {
+    margin-top: 3rem;
+  }
+
+  @include breakpoints(mq-md) {
+    &__activites-imgs {
+      padding: 4rem;
+    }
+  }
 
   @include breakpoints(mq-lg) {
     h2 {
@@ -20,8 +70,13 @@
       margin-right: 4rem;
     }
 
-    &__why,&__vision{
-      margin-bottom: 6rem;
+    &__why,
+    &__features {
+      margin-top: 0;
+    }
+
+    &__activites-imgs {
+      padding: 6rem;
     }
   }
 
@@ -30,9 +85,10 @@
       margin-left: 0;
       margin-right: 0;
     }
+  }
 
-    &__why,&__vision{
-      margin-bottom: 8rem;
-    }
+  
+  &__activites-imgs {
+    @include multiplier("padding", 6rem);
   }
 }

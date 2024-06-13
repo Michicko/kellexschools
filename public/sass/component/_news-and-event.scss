@@ -1,0 +1,145 @@
+@use "../abstract/variables" as *;
+@use "../abstract/mixins" as *;
+
+@mixin defaultTitle {
+  font-size: $base-text;
+  font-weight: 700;
+  color: $primary-dark;
+  text-transform: capitalize;
+
+  @include breakpoints(mq-md) {
+    font-size: $lg-text;
+  }
+
+  @include multiplier("font-size", $lg-text);
+}
+
+@mixin defaultDate() {
+  font-size: $sm-text;
+  font-weight: 400;
+  color: $primary-dark;
+  margin-bottom: 1rem;
+
+  @include multiplier("margin-bottom", 1rem);
+  @include multiplier("font-size", $sm-text);
+}
+
+.article {
+  &__link {
+    text-decoration: none;
+    display: grid;
+
+  }
+
+  &__title {
+    @include defaultTitle();
+  }
+
+  &__body {
+    background: $light;
+    padding: 2rem;
+    height: 10rem;
+
+    @include breakpoints(mq-md) {
+        height: 14rem;
+    }
+
+    @include multiplier("height", 14rem);
+    @include multiplier("padding", 2rem);
+  }
+
+  &__date {
+    @include defaultDate();
+  }
+}
+
+.event {
+  display: flex;
+  align-items: flex-start;
+  overflow: hidden;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  flex-direction: column;
+
+  @include multiplier("padding-top", 3rem);
+  @include multiplier("padding-bottom", 3rem);
+
+  & > *:not(:last-child) {
+    margin-bottom: 2rem;
+  }
+
+  @include breakpoints(mq-md) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__title {
+    @include defaultTitle();
+  }
+
+  &__date {
+    @include defaultDate();
+  }
+
+  &__btn {
+    width: 100%;
+
+    @include breakpoints(mq-md) {
+        width: auto;
+    }
+  }
+
+  &__content {
+
+    @include breakpoints(mq-md) {
+        display: none;
+    }
+
+    &-btn {
+      margin-bottom: 2rem;
+      border: none;
+      outline: none;
+      background: transparent;
+      display: flex;
+      align-items: center;
+
+      &-arrow{
+        height: 2.5rem;
+        width: 2.5rem;
+        fill: $primary-dark;
+        margin-top: .2rem;
+        @include multiplier("height", 2.5rem);
+        @include multiplier("width", 2.5rem);
+        @include multiplier("margin-top", .2rem);
+      }
+      
+      .text{
+        border-bottom: 1px solid $primary-dark;
+        text-transform: capitalize;
+        margin-right: 1rem;
+        @include multiplier("margin-right", 1rem);
+      }
+    }
+
+    &-box{
+        height: 0;
+        overflow: hidden;
+    }
+
+    &.isOpened &-box{
+        height: auto;
+        overflow: unset;
+    }
+
+    &-text {
+      font-size: $sm-text;
+      line-height: 1.5;
+      color: $primary-dark;
+
+      @include multiplier("font-size", $sm-text);
+      @include multiplier("line-height", 1.5);
+    }
+
+  }
+}

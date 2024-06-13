@@ -3,10 +3,17 @@
 
 .header {
   width: 100%;
-  margin-bottom: 5rem;
 
   @include breakpoints(mq-lg) {
-    margin-bottom: 8rem;
+    // margin-bottom: 8rem;
+  }
+
+  &--secondary {
+    background: $secondary-dark;
+  }
+  
+  &--primary-light {
+    background: $primary-100;
   }
 
   &__40-60 {
@@ -20,18 +27,6 @@
     @include breakpoints(mq-lg) {
       grid-template-columns: 45% 55%;
     }
-
-    &--secondary {
-      background: $secondary-dark;
-    }
-  }
-
-  &__img-box {
-    order: 1;
-
-    @include breakpoints(mq-xl) {
-      order: 2;
-    }
   }
 
   &__text-box {
@@ -41,26 +36,36 @@
     justify-content: center;
     align-items: flex-start;
     color: $light;
-    order: 2;
-
-    & > *:first-child {
-      margin-bottom: 1rem;
-    }
-
-    & > *:last-child {
-      margin-top: 2.5rem;
-    }
 
     @include breakpoints(mq-lg) {
-      order: 1;
-
-      & > *:last-child {
-        margin-top: 4rem;
-      }
+      padding: 0 4rem;
     }
 
     @include breakpoints(mq-xl) {
       padding: 0 6rem;
+    }
+
+    p{
+      max-width: 45rem;
+    }
+
+    &.home{
+      & > *:first-child {
+        margin-bottom: 1rem;
+      }
+  
+      & > *:last-child {
+        margin-top: 2.5rem;
+      }
+  
+      // @include breakpoints(mq-xl) {
+      //   padding: 0 6rem;
+      // }
+    }
+
+    @include breakpoints(mq-xl) {
+      max-width: 50rem;
+      @include multiplier("max-width", 50rem);
     }
 
     @include multiplier("padding-right", 6rem);

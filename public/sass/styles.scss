@@ -12,6 +12,9 @@
 @use './component/button';
 @use './component/socials';
 @use './component/feature';
+@use './component/form';
+@use './component/news-and-event';
+@use './component/grade';
 
 // layouts
 @use './layout/nav';
@@ -20,6 +23,7 @@
 @use './layout/sidebar';
 @use './layout/section';
 @use './layout/grid';
+@use './layout/main';
 @use './layout/footer';
 
 // utils

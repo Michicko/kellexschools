@@ -52,7 +52,7 @@
     height: 0;
     overflow: hidden;
     background: $light;
-    z-index: 200;
+    z-index: 500;
     transition: height 0.5s ease;
 
     @include breakpoints(mq-lg) {
