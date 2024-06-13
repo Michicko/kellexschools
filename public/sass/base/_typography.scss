@@ -10,11 +10,20 @@
   &--primary {
     font-size: $xxl-text;
     color: $primary-100;
+    line-height: 1.2;
 
     @include breakpoints(mq-sm) {
       font-size: clamp($xxl-text, 7.5vmax, 7.5rem);
       line-height: 1.2;
     }
+  }
+
+  .tiny{
+    font-weight: 400;
+  }
+
+  &--dark{
+    color: $primary-dark;
   }
 
   &--flex {
@@ -34,6 +43,7 @@
 
   &--tertiary {
     font-size: $lg-text;
+    color: $primary-dark;
 
     @include breakpoints(mq-sm) {
       font-size: clamp($lg-text, 3vmax, 3rem);
@@ -71,14 +81,25 @@
   font-weight: 400;
   font-family: $font-body;
   line-height: 1.6;
+  color: $primary-dark;
 
   @include breakpoints(mq-sm) {
     font-size: $base-text;
   }
 
   @include multiplier('font-size', $base-text);
+  @include multiplier('line-height', 1.6);
 
   &--white {
     color: $light;
+  }
+
+  &--md{
+    font-size: $lg-text;
+   
+  }
+
+  &--bold{
+    font-weight: 500;
   }
 }

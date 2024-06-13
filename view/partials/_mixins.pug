@@ -2,7 +2,7 @@
 mixin navLink(href, title, isMobile, currentUrl)
     - const defaultLink = 'nav__link';
     - const link = `${isMobile ? `${defaultLink} nav__link--mobile` : defaultLink}`;
-    a(href=href class={active: currentUrl === href} class=link)= title
+    a(href=href class={'nav__link--active': currentUrl === href} class=link)= title
 
 
 mixin logo(mode)
@@ -43,9 +43,39 @@ mixin image(name, alt, mimeType)
         source(media="(max-width: 320px)", srcset=`/images/${name}-xs.${mimeType}`)
         img(src=`/images/${name}-1766.${mimeType}` alt="kellex schools logo").img
 
+mixin lightHouse(name, alt, mimeType)
+    .lighthouse
+        button.lighthouse__btn X
+        .lighthouse__img-view
+            +image(name, alt, mimeType)
+
+
 
 mixin feature(title, icon)
     .feature 
         svg.feature__icon
             use(xlink:href=`/symbol-defs.svg#icon-${icon}`)
         h3.feature__title #{title}
+
+mixin article(article)
+    article.article
+        a(href=`/news/${article.id}`).article__link
+            .article__img-box
+                +image(article.image.split('.')[0], article.title, article.image.split('.')[1])
+            .article__body 
+                h5.article__title #{article.title} 
+
+mixin event(event)
+    article.event 
+        .event__body 
+            p.event__date Tue, April 25
+            h5.event__title #{event.title}
+        .event__content 
+            button.event__content-btn 
+                span.text more info
+                svg.event__content-btn-arrow
+                    use(xlink:href="/symbol-defs.svg#icon-cheveron-down")
+            .event__content-box 
+                p.event__content-text 
+                    | Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, reiciendis.
+        a(href=`/events/${event.id}`).btn.btn--secondary.event__btn Details

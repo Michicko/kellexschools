@@ -1,0 +1,58 @@
+extends base.pug
+
+block content 
+    header.header.header__about.header--primary-light.grid.grid--1fr-2x--lg 
+        .header__text-box.sm-order-2
+            h1.heading.heading--primary.heading--dark.heading--flex.mb-2 
+                span Admission
+                span.tiny Into Kellex
+            p.text Students seeking admission into Kellex schools will fill out an application form and also sit and pass an Entrance Examination which consists of both written test and Oral Interview.
+        .header__img-box.sm-order-1
+            +image('admission', 'kellex schools students', 'jpg')
+    main.main 
+        section.admission__section.bg-secondary--200.section--text
+            h2.heading.heading--secondary.center.mb-2 Application Form
+            p.text.mb-4.center Please fill the form below and click on the submit buton to start the admission process.
+            form.form.form__admission
+                .form__group 
+                    label.form__label(for="firstName") 
+                       | Student's First Name 
+                       span.required *
+                    input(type="text" name='firstName' id='firstName').form__input
+                .form__group 
+                    label.form__label(for="middleName") 
+                       | Student's MiddleName 
+                       span.required *
+                    input(type="text" name='middleName' id='middleName').form__input
+                .form__group 
+                    label.form__label(for="lastName") 
+                       | Student's Last Name / Surname 
+                       span.required *
+                    input(type="text" name='lastName' id='lastName').form__input
+                .form__group 
+                    label.form__label(for="phone") 
+                       | Parent Mobile Number (One Phone Number Is Enough) 
+                       span.required * 
+                    input(type="tel" name='phone' id='phone').form__input
+                .form__group 
+                    label.form__label(for="gender") 
+                       | Student Gender 
+                       span.required *
+                    input(type="text" name='gender' id='gender').form__input
+                .form__group 
+                    label.form__label(for="academic_class") 
+                       | Academic Class 
+                       span.required *
+                    input(type="text" name='academic_class' id='academic_class').form__input
+                .form__group 
+                    label.form__label(for="email") 
+                       | Parent Email 
+                       span.required *
+                    input(type="email" name='email' id='email').form__input
+                .form__group 
+                    label.form__label(for="relationship") 
+                       | Relationship to student 
+                       span.required *
+                    input(type="text" name='relationship' id='relationship').form__input
+                button.btn.btn--primary.form__btn Submit & Continue
+

@@ -1,0 +1,36 @@
+@use "../abstract/variables" as *;
+@use "../abstract/mixins" as *;
+
+.grade{
+    display: grid;
+
+    &__left{
+        display: grid;
+    }
+    
+    &__title-box{
+        height: 6.5rem;
+
+        display: flex;
+        align-items: center;
+        padding: 0 2rem;
+
+        &.primary{
+            background: $primary-dark;
+        }
+        &.secondary{
+            background: $secondary-dark;
+        }
+    }
+
+    &__title{
+        font-size: $lg-text;
+        font-weight: 700;
+        color: $light;
+        text-transform: capitalize;
+    }
+
+    &__desc-box{
+        padding: 4rem 2rem;
+    }
+}

@@ -100,49 +100,6 @@
     }
   }
 
-  .bg-secondary {
-    background: $secondary;
-
-    &--sm {
-      background: $secondary;
-      @include breakpoints(mq-lg) {
-        background: transparent;
-      }
-    }
-  }
-
-  .bg-secondary-400 {
-    background: $secondary-400;
-    position: relative;
-  }
-
-  .bg-secondary-dark {
-    background: $secondary-dark;
-    position: relative;
-
-    &--sm {
-      background: $secondary-dark;
-      @include breakpoints(mq-lg) {
-        background: transparent;
-      }
-    }
-  }
-
-  .sm-order-1 {
-    order: 1;
-  }
-
-  .sm-order-2 {
-    order: 2;
-  }
-
-  .sm-order-3 {
-    order: 3;
-  }
-
-  .sm-order-4 {
-    order: 4;
-  }
 
   @include breakpoints(mq-lg) {
     &--2fr-1fr-lg {
@@ -158,16 +115,97 @@
       grid-template-columns: repeat(2, 1fr);
     }
 
-    .sm-order-1,
-    .sm-order-2,
-    .sm-order-3, .sm-order-4 {
-      order: unset;
+    &--1fr-2x-lg{
+      
+    }
+  }
+}
+
+.row{
+
+  &--padded{
+    padding: 3rem;
+
+    @include breakpoints(mq-lg) {
+      padding: 5rem;
     }
 
-    .abs-lg {
-      position: absolute;
-      top: 0;
-      left: 0;
+    @include breakpoints(mq-xl) {
+      padding: 6rem;
     }
+
+    @include multiplier("padding", 6rem);
+  }
+
+  &--1fr{
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  &--1fr-2x-md{
+    @include breakpoints(mq-md) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 4rem;
+    }
+
+    @include multiplier("grid-gap", 4rem);
+  }
+
+  &--1fr-3x-lg{
+    @include breakpoints(mq-lg) {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 4rem;
+    }
+    
+    @include multiplier("grid-gap", 4rem);
+  }
+
+
+  &--1fr-2x{
+    display: grid;
+    grid-template-columns: 1fr;
+
+    @include breakpoints(mq-lg) {
+      grid-auto-rows: 1fr;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+.col{
+
+  @include breakpoints(mq-lg) {
+    padding: 4rem;
+  }
+
+  @include breakpoints(mq-2xl) {
+    padding: 6rem;
+  }
+
+  @include multiplier("padding", 6rem);
+
+  &__text-box{
+    padding: 4rem 2rem;
+
+    @include breakpoints(mq-lg) {
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+      padding-left: 0;
+      padding-right: 0;
+
+    }
+    @include multiplier("padding-top", 4rem);
+    @include multiplier("padding-bottom", 4rem);
+  }
+
+
+  &--secondary-100{
+    background: $secondary-100;
+  }
+
+  &--secondary-200{
+    background: $secondary-200;
   }
 }

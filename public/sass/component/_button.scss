@@ -7,10 +7,12 @@
   border: none;
   outline: none;
   padding: 1rem 3rem;
+  height: 4rem;
   text-align: center;
   text-transform: capitalize;
   font-size: $base-text;
   font-weight: 400;
+  cursor: pointer;
 
   &--primary {
     background: $primary;
@@ -38,5 +40,6 @@
   @include multiplier("padding-bottom", 1rem);
   @include multiplier("padding-left", 3rem);
   @include multiplier("padding-right", 3rem);
+  @include multiplier("height", 4rem);
   @include multiplier("font-size", $base-text);
 }

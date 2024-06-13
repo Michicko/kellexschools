@@ -8,7 +8,9 @@
   padding-left: 2rem;
   width: 100%;
   position: relative;
+  margin-top: 3rem;
 
+  
   @include breakpoints(mq-xl) {
     padding-left: 8rem;
     padding-right: 8rem;
@@ -47,7 +49,7 @@
         }
     }
 
-    @include breakpoints(mq-md) {
+    @include breakpoints(mq-lg) {
         grid-template-columns: repeat(4, auto);
         grid-gap: 4rem;
         grid-template-areas: unset;
@@ -116,9 +118,9 @@
     font-weight: 400;
     color: $primary-dark;
     font-family: $font-body;
-    line-height: 1.5;
+    line-height: 1.6;
 
-    @include multiplier("line-height", 1.5);
+    @include multiplier("line-height", 1.6);
   }
 
   &__text{
