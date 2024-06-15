@@ -22,48 +22,50 @@ html(lang="en")
                     .header__img-box.home.sm-order-1
                         +image('landing-header', 'welcome to kellex school', 'jpg')
                 main.main
-                    section.section.section__why
-                        h2.heading.heading--secondary.mb-4 Why Kellex Schools
-                        .grid.grid--2fr-1fr-lg
-                            .grid__img-box.sm-order-2 
-                                +image('approach', 'student and teacher in class', 'jpg')
-                            .grid__text-box.bg-secondary-dark--sm.sm-order-3.abs-lg
-                                .grid__text-box-inner 
+                    section.section
+                        .section__heading.padded-top
+                            h2.heading.heading--secondary Why Kellex Schools
+                        .col-2-1.auto-rows-1
+                            .img-box.sm-order-2 
+                                +image('approach', 'student and teacher in class', 'jpg', true)
+                            .text-box.bg-secondary-dark--sm.sm-order-3.abs-lg
+                                .text-box-inner 
                                     h3.heading.heading--tertiary.heading--white Our approach 
                                     p.text.text--white Include godly principles alongside academics, to use God fearing and dedicated teachers to implement integrated curriculum and to build a school...
                                     a.link(href="/about-us") Learn more 
-                            .grid__text-box.bg-secondary-400.sm-order-1
-                                .grid__text-box-inner 
+                            .text-box.bg-secondary-400.sm-order-1
+                                .text-box-inner 
                                     h3.heading.heading--tertiary.heading--white Admission
                                     p.text.text--white As we admit children for the #{new Date().getFullYear()}/#{new Date().getFullYear()+1} Academic Session, we stand on our longstanding principle of  producing godly...
                                     a.link(href="/admission") Enroll today
-                        .grid.grid--1fr-3x-lg
-                            .grid__img-box.sm-order-1
-                                +image('enhanced', 'students in class', 'jpg')
-                            .grid__text-box.bg-secondary--sm.abs-lg.sm-order-2
-                                .grid__text-box-inner 
+                        .col-3.auto-rows-1
+                            .img-box.sm-order-1
+                                +image('enhanced', 'students in class', 'jpg', true)
+                            .text-box.bg-secondary--sm.abs-lg.sm-order-2
+                                .text-box-inner 
                                     h3.heading.heading--tertiary.heading--white Enhanced Learning
                                     p.text.text--white Complete and quality education with a view to turning out well-groomed scholars that will contribute immensely to our society.
                                     a.link(href="/academics") view programs 
-                            .grid__text-box.bg-secondary.sm-order-4
-                                .grid__text-box-inner 
+                            .text-box.bg-secondary.sm-order-4
+                                .text-box-inner 
                                     h3.heading.heading--tertiary.heading--white Latest News & Events 
                                     p.text.text--white Stay updated on the latest news and events.
                                     a.link(href="/news-and-events") view all 
-                            .grid__img-box.sm-order-3.no-shadow
-                                +image('group', 'students in class', 'jpg')
-                        .grid.grid--1fr-3x-lg
-                            .grid__text-box.bg-secondary-dark.sm-order-2
-                                .grid__text-box-inner 
+                            .img-box.sm-order-3.no-shadow
+                                +image('group', 'students in class', 'jpg', true)
+                        .col-3.auto-rows-1
+                            .text-box.bg-secondary-dark.sm-order-2
+                                .text-box-inner 
                                     h3.heading.heading--tertiary.heading--white For the Parents
                                     p.text.text--white I'm a paragraph. Click here to add your own text and edit me. Let your users get to know you.
                                     a.link(href="/academics") Get informed 
-                            .grid__img-box.no-shadow.sm-order-1
-                                +image('students', 'group of students', 'jpg')
-                    section.section.section__features
-                        - const features = [{title: 'academic excellence', icon: 'academic-excellence'}, {title: 'Vast Curriculum', icon: 'curriculum'}, {title: 'qualified teachers', icon: 'qualified-teachers'}, {title: 'top-level classrooms', icon: 'classroom'}, {title: 'students', icon: 'students'}, {title: 'Conducive Environment', icon: 'secured-environment'}] 
-                        h2.heading.heading--secondary.mb-4 We're Making A Difference
-                        .grid.grid--1fr-3x-lg.features
+                            .img-box.no-shadow.sm-order-1
+                                +image('students', 'group of students', 'jpg', true)
+                    section.section
+                        - const features = [{title: 'academic excellence', icon: 'academic-excellence'}, {title: 'Vast Curriculum', icon: 'curriculum'}, {title: 'qualified teachers', icon: 'qualified-teachers'}, {title: 'top-level classrooms', icon: 'classroom'}, {title: 'students', icon: 'students'}, {title: 'Conducive Environment', icon: 'secured-environment'}]
+                        .section__heading.padded-top 
+                            h2.heading.heading--secondary We're Making A Difference
+                        .col-3.auto-rows-1.features
                             each feature in features 
                                 if feature.title == 'students'
                                     .feature.no-padding

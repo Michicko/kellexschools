@@ -88,7 +88,7 @@
 
     @include breakpoints(mq-md) {
         max-width: 30rem;
-      }
+    }
 
       @include multiplier("max-width", 30rem);
   }
@@ -119,8 +119,12 @@
     color: $primary-dark;
     font-family: $font-body;
     line-height: 1.6;
+    
 
     @include multiplier("line-height", 1.6);
+  }
+  &__link{
+    text-wrap: nowrap;
   }
 
   &__text{

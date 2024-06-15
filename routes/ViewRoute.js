@@ -1,5 +1,5 @@
 const express = require('express');
-const { getHome, getAbout, getAdmission, getLifeAtKellex, getGallery, getNewsAndEvents, getLogin, getAcademics } = require('../controller/ViewController');
+const { getHome, getAbout, getAdmission, getLifeAtKellex, getGallery, getNewsAndEvents, getLogin, getAcademics, getNews, getSingleNews, getEvent } = require('../controller/ViewController');
 const router = express.Router();
 
 
@@ -10,6 +10,9 @@ router.get('/academics', getAcademics)
 router.get('/life-at-kellex', getLifeAtKellex)
 router.get('/gallery', getGallery)
 router.get('/news-and-events', getNewsAndEvents)
+router.get('/events/:id', getEvent)
+router.get('/news', getNews)
+router.get('/news/:id', getSingleNews)
 router.get('/login', getLogin)
 
 

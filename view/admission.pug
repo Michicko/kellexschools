@@ -1,7 +1,7 @@
 extends base.pug
 
 block content 
-    header.header.header__about.header--primary-light.grid.grid--1fr-2x--lg 
+    header.header.bg-primary--100.col-2.auto-rows-1
         .header__text-box.sm-order-2
             h1.heading.heading--primary.heading--dark.heading--flex.mb-2 
                 span Admission
@@ -10,8 +10,9 @@ block content
         .header__img-box.sm-order-1
             +image('admission', 'kellex schools students', 'jpg')
     main.main 
-        section.admission__section.bg-secondary--200.section--text
-            h2.heading.heading--secondary.center.mb-2 Application Form
+        section.section.section--padded.bg-secondary--200
+            .section__topbar 
+                h2.heading.heading--secondary.center Application Form
             p.text.mb-4.center Please fill the form below and click on the submit buton to start the admission process.
             form.form.form__admission
                 .form__group 

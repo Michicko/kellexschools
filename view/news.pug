@@ -1,0 +1,11 @@
+extends base.pug
+
+block content 
+    main.main 
+        h1.heading.heading--primary.heading--dark.heading--flex.mb-4 
+                span Latest news
+        section.section__news 
+            .row.row--1fr-3x-lg
+                each article in articles 
+                    +article(article, 'news')
+            //- pagination

@@ -1,3 +1,42 @@
+const articles = [
+  {
+    id: 1,
+    title: 'Article 1 Lorem Ipsum Dolor Sit Amet',
+    image: 'article.jpg',
+    body: 'hello from article 1'
+  },
+  {
+    id: 2,
+    title: 'Article 2 Lorem Ipsum Dolor Sit Amet deer ',
+    image: 'article.jpg',
+    body: 'hello from article 2'
+  },
+  {
+    id: 3,
+    title: 'Article 3 Lorem Ipsum Dolor Sit Ameterrr',
+    image: 'article.jpg',
+    body: 'hello from article 3'
+  },
+]
+
+const events = [
+  {
+    id: 1,
+    title: 'event 1',
+    body: 'hello from event 1'
+  },
+  {
+    id: 2,
+    title: 'event 2 Lorem ipsum dolor sit amet consectetur adipisicing',
+    body: 'hello from event 2'
+  },
+  {
+    id: 3,
+    title: 'event 3',
+    body: 'hello from event 3'
+  },
+]
+
 const getHome = async (req, res, next) => {
   try {
     res.status(200).render("base", {
@@ -49,48 +88,25 @@ const getGallery = async (req, res, next) => {
 };
 
 const  getNewsAndEvents = async (req, res, next) => {
-  const articles = [
-    {
-      id: 1,
-      title: 'Article 1 Lorem Ipsum Dolor Sit Amet',
-      image: 'article.jpg',
-      body: 'hello from article 1'
-    },
-    {
-      id: 2,
-      title: 'Article 2 Lorem Ipsum Dolor Sit Amet deer ',
-      image: 'article.jpg',
-      body: 'hello from article 2'
-    },
-    {
-      id: 3,
-      title: 'Article 3 Lorem Ipsum Dolor Sit Ameterrr',
-      image: 'article.jpg',
-      body: 'hello from article 3'
-    },
-  ]
-  const events = [
-    {
-      id: 1,
-      title: 'event 1',
-      body: 'hello from event 1'
-    },
-    {
-      id: 2,
-      title: 'event 2 Lorem ipsum dolor sit amet consectetur adipisicing',
-      body: 'hello from event 2'
-    },
-    {
-      id: 3,
-      title: 'event 3',
-      body: 'hello from event 3'
-    },
-  ]
   try {
     res.status(200).render("news-and-events", {
       currentUrl: req.url,
       articles,
       events
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+const  getEvent = async (req, res, next) => {
+  const {id} = req.params;
+  const event = events.find((el) => el.id === id * 1);
+  try {
+    res.status(200).render("event", {
+      currentUrl: req.url,
+      articles,
+      event
     });
   } catch (error) {
     next(error);
@@ -117,6 +133,30 @@ const  getAcademics = async (req, res, next) => {
   }
 };
 
+const getNews = async (req, res, next) => {
+  try {
+    res.status(200).render("news", {
+      currentUrl: req.url,
+      articles
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+const getSingleNews = async (req, res, next) => {
+  const {id} = req.params;
+  const article = articles.find((el) => el.id === id * 1);
+  try {
+    res.status(200).render("singleNews", {
+      currentUrl: req.url,
+      article
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
 module.exports = {
   getHome,
   getAbout,
@@ -125,5 +165,8 @@ module.exports = {
   getGallery,
   getNewsAndEvents,
   getLogin,
-  getAcademics
+  getAcademics,
+  getNews,
+  getSingleNews,
+  getEvent
 };

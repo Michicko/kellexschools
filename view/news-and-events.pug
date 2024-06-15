@@ -1,7 +1,7 @@
 extends base.pug
 
 block content 
-    header.header.header__about.header--primary-light.grid.grid--1fr-2x--lg 
+    header.header.bg-primary--100.col-2.auto-rows-1
         .header__text-box.sm-order-2
             h1.heading.heading--primary.heading--dark.heading--flex.mb-2 
                 span News &
@@ -10,16 +10,17 @@ block content
         .header__img-box.sm-order-1
             +image('news-and-events', 'kellex students celebrating independence', 'jpg')
     main.main 
-        section.section__news.bg-secondary--200.section--text 
-            .section__topbar.flex.space-between.align-center.mb-4 
+        section.section.bg-secondary--200.section--padded 
+            .section__topbar.flex.space-between.align-center 
                 h2.heading.heading--secondary Latest News
-                a(href="/news").link.dark Read all news
-            .grid.grid--1fr-3x-lg.gap-4
+                a(href="/news").link.link--dark Read all news
+            .col-3.gap-4
                 each article in articles 
                     +article(article)
-        section.section__events.bg-primary-light.section--text 
-            h2.heading.heading--secondary.mb-4 School Events
-            .grid.grid--1fr.events
+        section.section.bg-primary-light.section--padded
+            .section__topbar 
+                h2.heading.heading--secondary School Events
+            .col-1
                 each event in events 
                     +event(event)
             //- pagination for events

@@ -3,14 +3,25 @@
 
 .grade{
     display: grid;
+    grid-template-columns: 100%;
+    grid-auto-rows: 1fr;
+    background: $secondary-100;
+
+    @include breakpoints(mq-lg) {
+        grid-template-columns: 55% 45%;
+    }
 
     &__left{
-        display: grid;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        @include breakpoints(mq-lg) {
+            flex-direction: row;
+        }
     }
     
     &__title-box{
         height: 6.5rem;
-
         display: flex;
         align-items: center;
         padding: 0 2rem;
@@ -21,16 +32,53 @@
         &.secondary{
             background: $secondary-dark;
         }
+
+        @include breakpoints(mq-lg) {
+            height: 100%;
+            width: 50%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            align-items: flex-start;
+            padding-top: 4rem;
+            padding-left: 4rem;
+        }
+
+        @include breakpoints(mq-xl) {
+            padding-top: 6rem;
+            padding-left: 6rem;
+        }
     }
 
     &__title{
-        font-size: $lg-text;
+        font-size: $xl-text;
         font-weight: 700;
         color: $light;
         text-transform: capitalize;
+
+        @include breakpoints(mq-lg) {
+            font-size: $xxxl-text;
+        }
+
+        @include multiplier("font-size", $xxxl-text);
     }
 
     &__desc-box{
-        padding: 4rem 2rem;
+        display: flex;
+        align-items: flex-start;
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+        padding-left: 2rem;
+        padding-right: 2rem;
+
+        @include breakpoints(mq-lg) {
+            padding: 4rem
+        }
+        @include breakpoints(mq-xl) {
+            padding: 6rem
+        }
+
+        @include multiplier("padding", 6rem);
     }
 }

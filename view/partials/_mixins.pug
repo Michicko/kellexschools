@@ -29,7 +29,7 @@ mixin navItem(item, isMobile, currentUrl)
             each innerItem in item.children 
                 +navLink(innerItem.link, innerItem.title, true, currentUrl) 
 
-mixin image(name, alt, mimeType)
+mixin image(name, alt, mimeType, isFull)
     picture 
         source(media="(min-width: 1766px)", srcset=`/images/${name}-1766.${mimeType}`)
         source(media="(min-width: 1440px)", srcset=`/images/${name}-1440.${mimeType}`)
@@ -41,7 +41,7 @@ mixin image(name, alt, mimeType)
         source(media="(min-width: 375px)", srcset=`/images/${name}-375.${mimeType}`)
         source(media="(min-width: 320px)", srcset=`/images/${name}-320.${mimeType}`)
         source(media="(max-width: 320px)", srcset=`/images/${name}-xs.${mimeType}`)
-        img(src=`/images/${name}-1766.${mimeType}` alt="kellex schools logo").img
+        img(src=`/images/${name}-1766.${mimeType}` alt="kellex schools logo" class=`${isFull ? 'img-full' : 'img'}`)
 
 mixin lightHouse(name, alt, mimeType)
     .lighthouse
@@ -57,12 +57,14 @@ mixin feature(title, icon)
             use(xlink:href=`/symbol-defs.svg#icon-${icon}`)
         h3.feature__title #{title}
 
-mixin article(article)
+mixin article(article, src)
     article.article
         a(href=`/news/${article.id}`).article__link
             .article__img-box
                 +image(article.image.split('.')[0], article.title, article.image.split('.')[1])
-            .article__body 
+            div(class=`article__body ${src}`)
+                if src 
+                    p.event__date Tue, April 25
                 h5.article__title #{article.title} 
 
 mixin event(event)

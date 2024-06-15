@@ -2,7 +2,7 @@ extends base.pug
 
 include ./partials/_mixins.pug
 block content
-    header.header.header__about.header--primary-light.grid.grid--1fr-2x--lg 
+    header.header.bg-primary--100.col-2.auto-rows-1 
         .header__text-box.sm-order-2
             h1.heading.heading--primary.heading--dark.heading--flex.mb-2 
                 span About
@@ -11,20 +11,19 @@ block content
         .header__img-box.sm-order-1
             +image('about-header', 'aboutkellex schools', 'jpg')
     main.main 
-        section.section__founder.row.row--1fr-2x 
-            .col.col--secondary-200 
-                .col__img-box 
+        section.section.col-2 
+            .bg-secondary--200.padded-lg
+                .img-box 
                     +image('founder', 'kellex schools founder', 'jpg') 
-                .col__text-box 
-                    h2.heading.heading--secondary.mb-2 Founder's Message
+                .text-box
+                    h3.heading.heading--tertiary.mb-2 Founder's Message
                     p.text.mb-3 Our goal is to discover and nurture the hidden potential in every student in our care. We offer a vast array of exciting activities and opportunities to help our students develop and become inquisitive.
                     p.text.mb-1 Yours sincerely,
                     p.text.text--md.text--bold Dr. Kelly Osawaru.
-            .col.col--secondary-100 
-                .col__img-box
+            .bg-secondary--100.padded-lg 
+                .img-box
                     +image('story', 'kellex students wearing medals', 'jpg') 
-                .col__text-box 
-                    //- h3.heading.heading--tertiary.mb-2 Our Story
+                .text-box 
                     p.text.mb-1 We are poised to producing godly students who are the future leaders of our dear country, Nigeria, our continent Africa and the world at large. We are committed to academic excellence, Kellex Schools will remain the trailblazers in Nigeria's private educational sector.
                     p.text.mb-3 Kellex Schools is located at Igwuruta, Ogba Rd, Benin City 300102, Edo State. The serene setting and the school's modern building offer a privileged study environment.
 
@@ -33,15 +32,17 @@ block content
 
                     h3.heading.heading--tertiary.mb-2 Our Vision
                     p.text.mb-3 Kellex Schools are committed to raising children that will shine the light of God to the world in their generation.
-        section.section__values.row.row--padded.bg-primary-light
-            h3.heading.heading--tertiary.mb-3 Our Values
+        section.section.section--padded.bg-primary-light
+            .section__topbar
+                h3.heading.heading--tertiary Our Values
             - const values = ['respect','responsibility','integrity','compassion','courage']
             ul.list 
                 each item in values 
                     li.list__item #{item}
-        section.section__staff.row.col--secondary-200
-            h3.heading.heading--tertiary.mb-3 Our Staff
-            .col__img-box
+        section.section.section--padded.bg-secondary--200
+            .section__topbar
+                h3.heading.heading--tertiary.mb-3 Our Staff
+            .img-box
                 +image('staff', 'Kellex schools staff', 'jpg') 
         
             

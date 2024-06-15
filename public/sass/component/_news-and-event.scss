@@ -35,10 +35,26 @@
     @include defaultTitle();
   }
 
+  &:hover &__title{
+    color: $secondary-dark;
+  }
+
+  .img{
+    transition: filter .35 ease-in;
+  }
+
+  &:hover img{
+    filter: brightness(.75);
+  }
+
   &__body {
     background: $light;
     padding: 2rem;
     height: 10rem;
+
+    &.news{
+      background: $primary-100;
+    }
 
     @include breakpoints(mq-md) {
         height: 14rem;
@@ -60,7 +76,9 @@
   padding-top: 3rem;
   padding-bottom: 3rem;
   flex-direction: column;
+  border-bottom: 1px solid $primary-light;
 
+  @include multiplier("border-bottom", 1px);
   @include multiplier("padding-top", 3rem);
   @include multiplier("padding-bottom", 3rem);
 
@@ -76,6 +94,10 @@
 
   &__title {
     @include defaultTitle();
+  }
+
+  &:hover &__title{
+    color: $secondary-dark;
   }
 
   &__date {
