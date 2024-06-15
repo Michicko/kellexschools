@@ -3,11 +3,7 @@
 
 .header {
   width: 100%;
-
-  @include breakpoints(mq-lg) {
-    // margin-bottom: 8rem;
-  }
-
+  
   &--secondary {
     background: $secondary-dark;
   }
@@ -57,10 +53,6 @@
       & > *:last-child {
         margin-top: 2.5rem;
       }
-  
-      // @include breakpoints(mq-xl) {
-      //   padding: 0 6rem;
-      // }
     }
 
     @include breakpoints(mq-xl) {

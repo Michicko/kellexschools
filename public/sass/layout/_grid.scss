@@ -1,211 +1,165 @@
 @use "../abstract/variables" as *;
 @use "../abstract/mixins" as *;
 
-.grid {
-  display: grid;
+
+.align-start {
+  align-items: flex-start;
+}
+
+.auto-rows-1{
   grid-auto-rows: 1fr;
+}
+
+.col {
+  display: grid;
+  width: 100%;
   position: relative;
-  overflow: hidden;
-
-  &__text-box {
-    z-index: 50;
-
-    &-inner {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: center;
-      padding-top: 2rem;
-      padding-left: 2rem;
-      padding-right: 2rem;
-      padding-bottom: 2rem;
-
-      & > *:first-child {
-        margin-bottom: 1rem;
-      }
-
-      & > *:last-child {
-        margin-top: 1rem;
-      }
-
-      @include breakpoints(mq-sm) {
-        & > *:first-child {
-          margin-bottom: 2rem;
-        }
-
-        & > *:last-child {
-          margin-top: 3rem;
-        }
-      }
-    }
-
-    @include breakpoints(mq-lg) {
-      &-inner {
-        justify-content: flex-start;
-        max-width: 35rem;
-        padding-right: 4rem;
-        padding-left: 4rem;
-        padding-top: 4rem;
-      }
-    }
-
-    @include breakpoints(mq-xl) {
-      &-inner {
-        max-width: 40rem;
-        padding-left: 6rem;
-        padding-top: 6rem;
-        padding-right: 4rem;
-      }
-    }
-
-    &-inner {
-      @include multiplier("max-width", 40rem);
-      @include multiplier("padding-left", 6rem);
-      @include multiplier("padding-top", 6rem);
-      @include multiplier("padding-right", 6rem);
-
-      & > *:first-child {
-        @include multiplier("margin-bottom", 2rem);
-      }
-
-      & > *:last-child {
-        @include multiplier("margin-top", 3rem);
-      }
-    }
-  }
-
-  &__img-box {
+  
+  &-1, &-2-1, &-2, &-3{
     position: relative;
-    user-select: none;
-
-    &::before {
-      @include breakpoints(mq-lg) {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        height: 100%;
-        width: 100%;
-        content: "";
-        z-index: 20;
-        background: rgba(#000, 0.4);
-      }
-    }
-
-    &.no-shadow::before{
-      @include breakpoints(mq-lg) {
-        display: none;
-      }
-    }
+    display: grid;
   }
 
+  &-1 {
+    grid-template-columns: 1fr;
+  }
 
-  @include breakpoints(mq-lg) {
-    &--2fr-1fr-lg {
+  &-2-1 {
+    width: 100%;
+    @include breakpoints(mq-lg) {
       grid-template-columns: 2fr 1fr;
     }
+  }
 
-    &--1fr-3x-lg {
-      grid-template-columns: repeat(3, 1fr);
-      grid-auto-rows: 1fr;
-    }
-
-    &--1fr-2x--lg {
+  &-2 {
+    width: 100%;
+  
+    @include breakpoints(mq-lg) {
       grid-template-columns: repeat(2, 1fr);
     }
+  }
 
-    &--1fr-2x-lg{
-      
+  &-3 {
+    width: 100%;
+   
+  
+    @include breakpoints(mq-lg) {
+      grid-template-columns: repeat(3, 1fr);
     }
   }
 }
 
-.row{
 
-  &--padded{
-    padding: 3rem;
+.img-box {
+  position: relative;
+  user-select: none;
+
+  &::before {
+    @include breakpoints(mq-lg) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 100%;
+      width: 100%;
+      content: "";
+      z-index: 20;
+      background: rgba(#000, 0.4);
+    }
+  }
+
+  &.no-shadow::before {
+    @include breakpoints(mq-lg) {
+      display: none;
+    }
+  }
+}
+
+
+.text-box {
+  padding: 4rem 2rem;
+  z-index: 50;
+
+  &:has(.text-box-inner){
+    padding: 0;
+  }
+
+  &-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    padding-bottom: 2rem;
+
+    & > *:first-child {
+      margin-bottom: 1rem;
+    }
+
+    & > *:last-child {
+      margin-top: 1rem;
+    }
+
+    @include breakpoints(mq-sm) {
+      & > *:first-child {
+        margin-bottom: 2rem;
+      }
+
+      & > *:last-child {
+        margin-top: 3rem;
+      }
+    }
 
     @include breakpoints(mq-lg) {
-      padding: 5rem;
+      justify-content: flex-start;
+      max-width: 35rem;
+      padding-right: 4rem;
+      padding-left: 4rem;
+      padding-top: 4rem;
     }
 
     @include breakpoints(mq-xl) {
-      padding: 6rem;
+      max-width: 40rem;
+      padding-left: 6rem;
+      padding-top: 6rem;
+      padding-right: 4rem;
     }
 
-    @include multiplier("padding", 6rem);
-  }
+    @include multiplier("max-width", 40rem);
+    @include multiplier("padding-left", 6rem);
+    @include multiplier("padding-top", 6rem);
+    @include multiplier("padding-right", 6rem);
 
-  &--1fr{
-    display: grid;
-    grid-template-columns: 1fr;
-  }
-
-  &--1fr-2x-md{
-    @include breakpoints(mq-md) {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-gap: 4rem;
+    & > *:first-child {
+      @include multiplier("margin-bottom", 2rem);
     }
 
-    @include multiplier("grid-gap", 4rem);
-  }
-
-  &--1fr-3x-lg{
-    @include breakpoints(mq-lg) {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-gap: 4rem;
-    }
-    
-    @include multiplier("grid-gap", 4rem);
-  }
-
-
-  &--1fr-2x{
-    display: grid;
-    grid-template-columns: 1fr;
-
-    @include breakpoints(mq-lg) {
-      grid-auto-rows: 1fr;
-      grid-template-columns: repeat(2, 1fr);
+    & > *:last-child {
+      @include multiplier("margin-top", 3rem);
     }
   }
+
+  @include breakpoints(mq-lg) {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  @include multiplier("padding-top", 4rem);
+  @include multiplier("padding-bottom", 4rem);
 }
 
-.col{
 
+.padded-lg {
   @include breakpoints(mq-lg) {
     padding: 4rem;
   }
 
-  @include breakpoints(mq-2xl) {
+  @include breakpoints(mq-xl) {
     padding: 6rem;
-  }
-
-  @include multiplier("padding", 6rem);
-
-  &__text-box{
-    padding: 4rem 2rem;
-
-    @include breakpoints(mq-lg) {
-      padding-top: 4rem;
-      padding-bottom: 4rem;
-      padding-left: 0;
-      padding-right: 0;
-
-    }
-    @include multiplier("padding-top", 4rem);
-    @include multiplier("padding-bottom", 4rem);
-  }
-
-
-  &--secondary-100{
-    background: $secondary-100;
-  }
-
-  &--secondary-200{
-    background: $secondary-200;
   }
 }

@@ -1,7 +1,7 @@
 extends base.pug
 
 block content 
-    header.header.header__about.header--primary-light.grid.grid--1fr-2x--lg 
+    header.header.bg-primary--100.col-2.auto-rows-1
         .header__text-box.sm-order-2
             h1.heading.heading--primary.heading--dark.heading--flex.mb-2 
                 span Life
@@ -10,16 +10,17 @@ block content
         .header__img-box.sm-order-1
             +image('life-at-kellex', 'kellex schools students', 'jpg')
     main.main 
-        section.admission__section.section--text.bg-secondary--200
-            h2.heading.heading--secondary.mb-3 Extra curricular Activities
+        section.section.section--padded.bg-secondary--200
+            .section__topbar
+                h2.heading.heading--secondary Extra curricular Activities
             p.text.mb-4 Students who attend kellex have opportunities to get involved in extra curricular activities outside the classroom. Students can participate in activities that interest them, as participation in these activities tends to build confidence and have a positive effect on a student's overall progress and achievement.
             - const activities = ['Fitness Club','Drama Club','Music Club','Photography / Press Club','Young Famers Club','Art And Design Club','ICT / Coding Club','Mathematics Club','Public Speaking Club','Reading Club','Chess Club','Red Cross','Jets Club','Girl Guides','Boy Scouts','Cultural Club']
-                .list 
-                    each activity in activities 
-                        .list__item #{activity}
-            - const imgs = ['ict-coding','health-and-science','man-o-war','music']
-        section.section.header--primary-light.section__activites-imgs
-            .row.row--1fr-2x-md.row--1fr-3x-lg 
+            .list 
+                each activity in activities 
+                    .list__item #{activity}
+        - const imgs = ['ict-coding','health-and-science','man-o-war','music']
+        section.section.bg-primary--100.section--padded-lg
+            .col-3.gap-1.lg-gap-4
                 each img in imgs 
                     +image(img, img,'jpg')
 

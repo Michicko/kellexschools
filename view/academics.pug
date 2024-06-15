@@ -1,7 +1,7 @@
 extends base.pug
 
 block content 
-    header.header.header__about.header--primary-light.grid.grid--1fr-2x--lg 
+    header.header.bg-primary--100.col-2.auto-rows-1 
         .header__text-box.sm-order-2
             h1.heading.heading--primary.heading--dark.heading--flex.mb-2 
                 span Academics
@@ -9,29 +9,29 @@ block content
             +image('academics', 'kellex students', 'jpg')
     main.main 
         section.section__grades 
-            .row.bg-secondary--100 
-                .grid.grid__55-45
+            .col-1.gap-1
+                .grade
                     .grade__left
                         .grade__title-box.primary.sm-order-2
-                            h3.grade__title Creche
+                            h2.grade__title Creche
                         .grade__img-box.sm-order-1 
                             +image('approach', 'student and teacher in class', 'jpg')
                     .grade__desc-box
                         p.text Kellex Schools Creche admits babies of pre-school ages of between 6 weeks and 2 years. These babies receive total care in our secured homely environment where high premium is placed on comfort, safety and hygiene.
-                .grid.grid__55-45
+                .grade
                     .grade__left
                         .grade__title-box.secondary.sm-order-2
-                            h3.grade__title Nursery / Primary
+                            h2.grade__title Nursery / Primary
                         .grade__img-box.sm-order-1 
                             +image('approach', 'student and teacher in class', 'jpg')
                     .grade__desc-box
-                        p.text The key part of the children curriculum focuses on Cognitive, Psychomotor and Affective domains of education. We are an IT-based school. We operate a wider curriculum tailored adequately to prepare our pupils for the Nigerian Common Entrance Examinations.
-                .grid.grid__55-45
+                        p.text Kellex High School's curriculum is designed to cater to the Cognitive, Psychomotor, and Affective domains of education, with a strong emphasis on technology integration. As an IT-based school, we offer a tailored curriculum that prepares our students for the Nigerian Common Entrance Examinations, ensuring they are well-equipped for success.
+                .grade
                     .grade__left
                         .grade__title-box.primary.sm-order-2
-                            h3.grade__title Nursery / Primary
+                            h2.grade__title High School
                         .grade__img-box.sm-order-1 
                             +image('approach', 'student and teacher in class', 'jpg')
                     .grade__desc-box
-                        p.text Kellex High School has a broad based curriculum consisting of all the subjects areas specified by the ministry of Education, broken into the Junior Secondary(JSS) and the Senior Secondary School levels. At Kelelx High School, well prepared activities are available, backed by modern teaching aids for the development of a total child. Admission is opened to successful candidates.
+                        p.text Kellex High School offers a comprehensive curriculum that covers all subject areas mandated by the Ministry of Education, divided into Junior and Senior Secondary levels. The school provides a range of well-prepared activities and utilizes modern teaching aids to foster the development of the whole child, welcoming successful candidates for admission.
         //- 320 - 326

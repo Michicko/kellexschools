@@ -25,6 +25,12 @@
   display: block;
 }
 
+.img-full{
+  max-width: 100%;
+  height: 100%;
+  display: block;
+}
+
 .link {
   font-size: $sm-text;
   font-weight: 500;
@@ -56,7 +62,7 @@
     @include multiplier("height", 1.5px);
   }
 
-  &.dark{
+  &.dark, &--dark{
     color: $primary-dark;
 
     &::before{
@@ -109,6 +115,14 @@
   .gap-#{$i} {
     grid-gap: #{$i}rem;
   }
+
+  .lg-gap-#{$i}{
+    @include breakpoints(mq-lg) {
+     grid-gap: #{$i}rem;
+    }
+  }
+
+
   .column-gap-#{$i} {
     grid-column-gap: #{$i}rem;
   }
@@ -138,7 +152,7 @@
   background: $secondary-dark;
 }
 
-.bg-primary-light {
+.bg-primary-light,.bg-primary--100 {
   background: $primary-100;
 }
 

@@ -1,4 +1,13 @@
 extends base.pug
 
+
 block content 
-    h1 Gallery
+    main.main 
+        - const visuals = [{id: 2, link: "/visual-1.jpg"}, {id: 3,link: "/visual-2.jpg"},{id: 4, link: "/visual-3.jpg"},{id: 5,link: "/visual-4.jpg"},{id: 6,link: "/visual-5.jpg"},{id: 7,link: "/visual-6.jpg"},{id: 8,link: "/visual-7.jpg"},{id: 9,link: "/visual-8.jpg"},{id: 10,link: "/visual-9.jpg"},{id: 11,link: "/visual-10.jpg"},{id: 12,link: "/visual-11.jpg"},{id: 13,link: "/visual-12.jpg"},{id: 14,link: "/visual-13.jpg"},{id: 15,link: "/visual-14.jpg"},{id: 16, link: "/visual-16.jpg"}]
+        section.section
+            .section__heading 
+                h1.heading.heading--primary.heading--dark.heading--flex 
+                    span Gallery
+            .visuals 
+                each visual in visuals 
+                    img(src=`/images/${visual.link}`, alt="kellex students").gallery__visual
