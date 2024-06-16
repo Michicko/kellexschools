@@ -1417,6 +1417,8 @@ body {
   right: 2rem;
   color: #c83339;
   z-index: 250;
+  font-size: 1.8rem;
+  font-weight: 700;
 }
 .lighthouse__img-view {
   position: relative;
@@ -2875,7 +2877,7 @@ body {
   text-decoration: none;
   border: none;
   display: inline-block;
-  color: #c83339;
+  color: #88a2d3;
 }
 @media ((min-width: 36rem)) {
   .global-link {
@@ -2896,6 +2898,9 @@ body {
   .global-link {
     font-size: 2.24rem;
   }
+}
+.global-link:hover {
+  color: #c83339;
 }
 
 .m-1 {
