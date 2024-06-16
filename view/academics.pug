@@ -25,7 +25,7 @@ block content
                         .grade__img-box.sm-order-1 
                             +image('approach', 'student and teacher in class', 'jpg')
                     .grade__desc-box
-                        p.text Kellex High School's curriculum is designed to cater to the Cognitive, Psychomotor, and Affective domains of education, with a strong emphasis on technology integration. As an IT-based school, we offer a tailored curriculum that prepares our students for the Nigerian Common Entrance Examinations, ensuring they are well-equipped for success.
+                        p.text Kellex nursery/primary School's curriculum is designed to cater to the Cognitive, Psychomotor, and Affective domains of education, with a strong emphasis on technology integration. We offer a tailored curriculum that prepares our students for the Nigerian Common Entrance Examinations, ensuring they are well-equipped for success. 
                 .grade
                     .grade__left
                         .grade__title-box.primary.sm-order-2
@@ -33,5 +33,16 @@ block content
                         .grade__img-box.sm-order-1 
                             +image('approach', 'student and teacher in class', 'jpg')
                     .grade__desc-box
-                        p.text Kellex High School offers a comprehensive curriculum that covers all subject areas mandated by the Ministry of Education, divided into Junior and Senior Secondary levels. The school provides a range of well-prepared activities and utilizes modern teaching aids to foster the development of the whole child, welcoming successful candidates for admission.
-        //- 320 - 326
+                        p.text Kellex High School offers a comprehensive curriculum that covers all subject areas mandated by the Ministry of Education, divided into Junior and Senior Secondary levels. The school provides a range of well-prepared activities and utilizes modern teaching aids to foster the development of the whole child, welcoming successful candidates for admission. 
+        section.section.bg-primary--100.padded 
+            p.text.mb-2 Subjects taught in Kellex nursery / primary school include the following:
+            - const pCurriculum = ["English","Mathematics","Phonetics","Quantitative Aptitude","Moral Education","Home Economics","French","Social Studies","Computer Education","Writing","Reading","Etiquette","Yoruba","Art and Craft","Physical/Health Education","Internet","Music","Elementary Science","Current Affairs","Verbal Aptitude","Religious Knowledge","Literature"]
+            ul.list.col-2.column-gap-4.row-gap-2 
+                each el in pCurriculum 
+                    li.list__item #{el}
+        section.section.bg-secondary--200.padded
+            p.text.mb-2 Subjects taught in Kellex high school include the following:
+            - const hCurriculum = ["English Language","Business Studies","Mathematics","Physical Education","Integrated Science","Christian Religion Knowledge","Introductory Technology","Social Studies","Home Economics","Social Studies","Music","Agricultural Science","A Nigerian Language (Igbo or Yoruba)","Fine Art","Computer Science","French",]
+            ul.list.col-2.column-gap-4.row-gap-2  
+                each el in hCurriculum 
+                    li.list__item #{el}

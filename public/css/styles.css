@@ -63,6 +63,7 @@ body {
   font-weight: 700;
   line-height: 1;
   text-transform: capitalize;
+  color: #2a295a;
 }
 .heading--primary {
   font-size: 2.5rem;
@@ -151,9 +152,30 @@ body {
   line-height: 1.6;
   color: #2a295a;
 }
+.text.big {
+  font-size: 1.6rem;
+}
 @media ((min-width: 36rem)) {
   .text {
     font-size: 1.6rem;
+  }
+  .text.big {
+    font-size: 1.8rem;
+  }
+}
+@media ((min-width: 120rem)) {
+  .text.big {
+    font-size: 2.16rem;
+  }
+}
+@media ((min-width: 110rem)) {
+  .text.big {
+    font-size: 2.34rem;
+  }
+}
+@media ((min-width: 160rem)) {
+  .text.big {
+    font-size: 2.52rem;
   }
 }
 @media ((min-width: 120rem)) {
@@ -925,6 +947,74 @@ body {
   }
 }
 
+.news__container {
+  max-width: 96rem;
+  width: 100%;
+  margin: 0 auto;
+  border: 1px solid #88a2d3;
+  padding: 2rem;
+}
+@media ((min-width: 64rem)) {
+  .news__container {
+    padding: 4rem;
+  }
+}
+@media ((min-width: 75rem)) {
+  .news__container {
+    padding: 6rem;
+  }
+}
+@media ((min-width: 120rem)) {
+  .news__container {
+    padding: 7.2rem;
+  }
+}
+@media ((min-width: 110rem)) {
+  .news__container {
+    padding: 7.8rem;
+  }
+}
+@media ((min-width: 160rem)) {
+  .news__container {
+    padding: 8.4rem;
+  }
+}
+
+.events__header {
+  min-height: 30rem;
+  width: 100%;
+  background: #e9e9f5;
+}
+
+.padded {
+  padding: 2rem;
+}
+@media ((min-width: 64rem)) {
+  .padded {
+    padding: 4rem;
+  }
+}
+@media ((min-width: 75rem)) {
+  .padded {
+    padding: 6rem;
+  }
+}
+@media ((min-width: 120rem)) {
+  .padded {
+    padding: 7.2rem;
+  }
+}
+@media ((min-width: 110rem)) {
+  .padded {
+    padding: 7.8rem;
+  }
+}
+@media ((min-width: 160rem)) {
+  .padded {
+    padding: 8.4rem;
+  }
+}
+
 .event {
   display: flex;
   align-items: flex-start;
@@ -1275,6 +1365,7 @@ body {
   padding-bottom: 3rem;
   padding-left: 2rem;
   padding-right: 2rem;
+  flex-direction: column;
 }
 @media ((min-width: 64rem)) {
   .grade__desc-box {
@@ -1300,6 +1391,71 @@ body {
   .grade__desc-box {
     padding: 8.4rem;
   }
+}
+
+.lighthouse {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: block;
+  z-index: 400;
+  background: rgba(42, 41, 90, 0.9);
+  display: none;
+}
+.lighthouse--open {
+  display: block;
+  overflow: hidden;
+}
+.lighthouse__btn {
+  height: 3rem;
+  width: 3rem;
+  color: #fff;
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+  color: #c83339;
+  z-index: 250;
+}
+.lighthouse__img-view {
+  position: relative;
+  padding: 2rem;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media ((min-width: 48rem)) {
+  .lighthouse__img-view {
+    padding: 4rem;
+  }
+}
+@media ((min-width: 75rem)) {
+  .lighthouse__img-view {
+    padding: 6rem;
+  }
+}
+@media ((min-width: 120rem)) {
+  .lighthouse__img-view {
+    padding: 7.2rem;
+  }
+}
+@media ((min-width: 110rem)) {
+  .lighthouse__img-view {
+    padding: 7.8rem;
+  }
+}
+@media ((min-width: 160rem)) {
+  .lighthouse__img-view {
+    padding: 8.4rem;
+  }
+}
+.lighthouse__img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 .nav {
@@ -1771,6 +1927,12 @@ body {
   .container {
     padding-right: 11.2rem;
   }
+}
+
+.big-container {
+  max-width: 96rem;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .sidebar {
@@ -2644,7 +2806,7 @@ body {
   color: #fff;
   text-decoration: none;
   border: none;
-  display: block;
+  display: inline-block;
   text-transform: capitalize;
   position: relative;
 }
@@ -2703,6 +2865,36 @@ body {
 @media ((min-width: 64rem)) {
   .link:hover::before {
     bottom: -1rem;
+  }
+}
+
+.global-link {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  display: inline-block;
+  color: #c83339;
+}
+@media ((min-width: 36rem)) {
+  .global-link {
+    font-size: 1.6rem;
+  }
+}
+@media ((min-width: 120rem)) {
+  .global-link {
+    font-size: 1.92rem;
+  }
+}
+@media ((min-width: 110rem)) {
+  .global-link {
+    font-size: 2.08rem;
+  }
+}
+@media ((min-width: 160rem)) {
+  .global-link {
+    font-size: 2.24rem;
   }
 }
 
@@ -3472,46 +3664,65 @@ body {
   font-weight: 700;
   position: relative;
 }
-@media ((min-width: 64rem)) {
-  .list__item {
-    font-size: 3rem;
-  }
-}
 @media ((min-width: 75rem)) {
   .list__item {
-    font-size: 3.5rem;
+    font-size: 2.5rem;
   }
 }
 @media ((min-width: 85.375rem)) {
   .list__item {
-    font-size: 4rem;
+    font-size: 3rem;
   }
 }
 @media ((min-width: 120rem)) {
   .list__item {
-    font-size: 4.8rem;
+    font-size: 3.6rem;
   }
 }
 @media ((min-width: 110rem)) {
   .list__item {
-    font-size: 5.2rem;
+    font-size: 3.9rem;
   }
 }
 @media ((min-width: 160rem)) {
   .list__item {
-    font-size: 5.6rem;
+    font-size: 4.2rem;
   }
 }
 .list__item::before {
   position: absolute;
-  top: 50%;
+  top: 0.8rem;
   left: -1.5rem;
   content: "";
   height: 0.8rem;
   width: 0.8rem;
   border-radius: 50%;
   background: #c83339;
-  transform: translateY(-50%);
+}
+@media ((min-width: 75rem)) {
+  .list__item::before {
+    top: 1.4rem;
+  }
+}
+@media ((min-width: 85.375rem)) {
+  .list__item::before {
+    top: 1.6rem;
+  }
+}
+@media ((min-width: 120rem)) {
+  .list__item::before {
+    top: 1.92rem;
+  }
+}
+@media ((min-width: 110rem)) {
+  .list__item::before {
+    top: 2.08rem;
+  }
+}
+@media ((min-width: 160rem)) {
+  .list__item::before {
+    top: 2.24rem;
+  }
 }
 @media ((min-width: 120rem)) {
   .list__item::before {
@@ -3557,6 +3768,10 @@ body {
   .list__item::before {
     width: 1.12rem;
   }
+}
+.list__item--sm::before {
+  height: 0.6rem;
+  width: 0.6rem;
 }
 
 .center {
@@ -3675,6 +3890,36 @@ body {
 .gallery__visual {
   max-width: 100%;
   height: auto;
+}
+
+.error__container {
+  width: 100%;
+  min-height: 50rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.error__img {
+  height: 15rem;
+  width: 15rem;
+  margin-bottom: 2rem;
+  filter: invert(12%) sepia(10%) saturate(6170%) hue-rotate(190deg) brightness(96%) contrast(88%);
+}
+@media ((min-width: 120rem)) {
+  .error {
+    margin-bottom: 4.8rem;
+  }
+}
+@media ((min-width: 110rem)) {
+  .error {
+    margin-bottom: 5.2rem;
+  }
+}
+@media ((min-width: 160rem)) {
+  .error {
+    margin-bottom: 5.6rem;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */

@@ -2,10 +2,13 @@ extends base.pug
 
 block content 
     main.main 
-        h1.heading.heading--primary.heading--dark.heading--flex.mb-4 
+        h2.heading.heading--secondary.heading--dark.heading--flex.mb-4 
                 span Latest news
-        section.section__news 
-            .row.row--1fr-3x-lg
-                each article in articles 
-                    +article(article, 'news')
+        section.section
+            if articles.length < 1
+                p.text.big No news article available.
+            else
+                .col-3.gap-4
+                    each article in articles 
+                        +article(article, 'news')
             //- pagination

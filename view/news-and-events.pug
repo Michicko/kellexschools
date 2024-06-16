@@ -14,14 +14,20 @@ block content
             .section__topbar.flex.space-between.align-center 
                 h2.heading.heading--secondary Latest News
                 a(href="/news").link.link--dark Read all news
-            .col-3.gap-4
-                each article in articles 
-                    +article(article)
+            if articles.length < 1
+                p.text.big No news article available.
+            else
+                .col-3.gap-4
+                    each article in articles 
+                        +article(article)
         section.section.bg-primary-light.section--padded
             .section__topbar 
                 h2.heading.heading--secondary School Events
-            .col-1
-                each event in events 
-                    +event(event)
+            if events.length < 1
+                p.text.big No events available.
+            else
+                .col-1
+                    each event in events 
+                        +event(event)
             //- pagination for events
 

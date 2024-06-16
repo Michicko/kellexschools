@@ -1,5 +1,15 @@
 extends base.pug
 
 block content 
-    h1.heading.heading--primary.heading--dark.heading--flex.mb-2 
-        span #{event.title}
+    header.header.events__header 
+        .big-container.padded 
+            p.text.mb-1 25, April 2024
+            h2.heading.heading--secondary.mb-2  #{event.title}
+            p.text Lorem ipsum dolor sit, amet consectetur adipisicing elit. Id, reiciendis.
+    main 
+        section.section.big-container.padded
+            h3.heading.heading--tertiary.mb-2 Time & Location
+            p.text 25, April 2024, 7:00pm
+            p.text.mb-4 Ogba Rd, Benin City 300102, Edo
+            h3.heading.heading--tertiary.mb-2 About the event
+            p.text Lorem ipsum, dolor sit amet consectetur adipisicing elit. Harum dolore cumque quidem iste enim perspiciatis, incidunt eveniet consequuntur consectetur minus impedit doloremque debitis id illo quia repellendus laudantium quaerat ullam? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quia, rerum consequuntur. Fugit blanditiis dolorem voluptas nesciunt esse omnis reprehenderit molestiae.

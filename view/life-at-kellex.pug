@@ -20,10 +20,10 @@ block content
                     .list__item #{activity}
         - const imgs = ['ict-coding','health-and-science','man-o-war','music']
         section.section.bg-primary--100.section--padded-lg
-            .col-3.gap-1.lg-gap-4
+            .col-3.gap-1.lg-gap-4.gallery
                 each img in imgs 
                     +image(img, img,'jpg')
-
+    include ./partials/_lighthouse.pug
 
 
 

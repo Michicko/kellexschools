@@ -18,3 +18,9 @@
   @include multiplier("padding-left", 8rem);
   @include multiplier("padding-right", 8rem);
 }
+
+.big-container{
+  max-width: 96rem;
+  width: 100%;
+  margin: 0 auto;
+}
