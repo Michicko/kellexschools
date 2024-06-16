@@ -6,6 +6,7 @@
   font-weight: 700;
   line-height: 1;
   text-transform: capitalize;
+  color: $primary-dark;
 
   &--primary {
     font-size: $xxl-text;
@@ -83,8 +84,20 @@
   line-height: 1.6;
   color: $primary-dark;
 
+  &.big{
+    font-size: $base-text;
+  }
+
   @include breakpoints(mq-sm) {
     font-size: $base-text;
+    &.big{
+      font-size: $lg-text;
+    }
+  }
+
+  
+  &.big{
+    @include multiplier('font-size', $lg-text);
   }
 
   @include multiplier('font-size', $base-text);

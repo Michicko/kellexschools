@@ -1,22 +1,22 @@
 const articles = [
-  {
-    id: 1,
-    title: 'Article 1 Lorem Ipsum Dolor Sit Amet',
-    image: 'article.jpg',
-    body: 'hello from article 1'
-  },
-  {
-    id: 2,
-    title: 'Article 2 Lorem Ipsum Dolor Sit Amet deer ',
-    image: 'article.jpg',
-    body: 'hello from article 2'
-  },
-  {
-    id: 3,
-    title: 'Article 3 Lorem Ipsum Dolor Sit Ameterrr',
-    image: 'article.jpg',
-    body: 'hello from article 3'
-  },
+  // {
+  //   id: 1,
+  //   title: 'Article 1 Lorem Ipsum Dolor Sit Amet',
+  //   image: 'article.jpg',
+  //   body: 'hello from article 1'
+  // },
+  // {
+  //   id: 2,
+  //   title: 'Article 2 Lorem Ipsum Dolor Sit Amet deer ',
+  //   image: 'article.jpg',
+  //   body: 'hello from article 2'
+  // },
+  // {
+  //   id: 3,
+  //   title: 'Article 3 Lorem Ipsum Dolor Sit Ameterrr',
+  //   image: 'article.jpg',
+  //   body: 'hello from article 3'
+  // },
 ]
 
 const events = [
@@ -113,6 +113,16 @@ const  getEvent = async (req, res, next) => {
   }
 };
 
+const getError404 = async (req, res, next) => {
+  try {
+    res.status(404).render("error404", {
+      currentUrl: req.url,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
 const  getLogin = async (req, res, next) => {
   try {
     res.status(200).render("login", {
@@ -150,7 +160,18 @@ const getSingleNews = async (req, res, next) => {
   try {
     res.status(200).render("singleNews", {
       currentUrl: req.url,
-      article
+      article,
+      articles
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+const getMaintenance = async (req, res, next) => {
+  try {
+    res.status(503).render("maintenance", {
+      currentUrl: req.url,
     });
   } catch (error) {
     next(error);
@@ -168,5 +189,7 @@ module.exports = {
   getAcademics,
   getNews,
   getSingleNews,
-  getEvent
+  getEvent,
+  getMaintenance,
+  getError404
 };

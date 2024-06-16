@@ -15,6 +15,7 @@
 @use './component/form';
 @use './component/news-and-event';
 @use './component/grade';
+@use './component/lighthouse';
 
 // layouts
 @use './layout/nav';
@@ -31,4 +32,5 @@
 
 // pages
 @use './pages/gallery' ;
+@use './pages/error' ;
 

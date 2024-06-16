@@ -1,0 +1,26 @@
+@use "../abstract/variables" as *;
+@use "../abstract/mixins" as *;
+
+.error {
+  &__container {
+    width: 100%;
+    min-height: 50rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__img {
+    height: 15rem;
+    width: 15rem;
+    margin-bottom: 2rem;
+    filter: invert(12%) sepia(10%) saturate(6170%) hue-rotate(190deg)
+      brightness(96%) contrast(88%);
+  }
+
+  @include breakpoints(mq-lg) {
+  }
+
+  @include multiplier("margin-bottom", 4rem);
+}

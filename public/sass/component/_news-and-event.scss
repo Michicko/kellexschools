@@ -69,6 +69,51 @@
   }
 }
 
+.news{
+
+  &__container{
+    max-width: 96rem;
+    width: 100%;
+    margin: 0 auto;
+    border: 1px solid $primary-light;
+    padding: 2rem;
+
+    @include breakpoints(mq-lg) {
+      padding: 4rem;
+    }
+
+    @include breakpoints(mq-xl) {
+      padding: 6rem;
+    }
+
+    @include multiplier("padding", 6rem);
+  }
+}
+
+.events{
+
+  &__header{
+    min-height: 30rem;
+    width: 100%;
+    background: $primary-100;
+  
+  }
+}
+
+.padded{
+  padding: 2rem;
+
+    @include breakpoints(mq-lg) {
+      padding: 4rem;
+    }
+  
+    @include breakpoints(mq-xl) {
+      padding: 6rem;
+    }
+  
+    @include multiplier("padding", 6rem);
+}
+
 .event {
   display: flex;
   align-items: flex-start;

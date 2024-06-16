@@ -43,12 +43,6 @@ mixin image(name, alt, mimeType, isFull)
         source(media="(max-width: 320px)", srcset=`/images/${name}-xs.${mimeType}`)
         img(src=`/images/${name}-1766.${mimeType}` alt="kellex schools logo" class=`${isFull ? 'img-full' : 'img'}`)
 
-mixin lightHouse(name, alt, mimeType)
-    .lighthouse
-        button.lighthouse__btn X
-        .lighthouse__img-view
-            +image(name, alt, mimeType)
-
 
 
 mixin feature(title, icon)

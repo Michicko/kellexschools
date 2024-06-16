@@ -1,5 +1,25 @@
 extends base.pug
 
 block content 
-    h1.heading.heading--primary.heading--dark.heading--flex.mb-2 
-        span #{article.title}
+    main.main.big-container
+        section.section 
+            .news__container
+                p.text.news__date.mb-2 25, April 2024
+                h2.heading.heading--secondary.mb-2 #{article.title}
+                .news__body 
+                    p.text.mb-1 Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, iste? Voluptates voluptatum tempore itaque voluptatibus ratione hic voluptate, architecto nihil?
+                    p.text.mb-2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, quo beatae recusandae, velit quibusdam, debitis vero ad nemo expedita dicta possimus temporibus id asperiores impedit?
+                    +image('staff', 'Kellex schools staff', 'jpg') 
+                    p.text.mb-2.mt-2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, quo beatae recusandae, velit quibusdam, debitis vero ad nemo expedita dicta possimus temporibus id asperiores impedit?
+                    h3.heading.my-3 New subheading  
+                    p.text.mb-1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, quo beatae recusandae, velit quibusdam, debitis vero ad nemo expedita dicta possimus temporibus id asperiores impedit?
+                    p.text.mb-2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, quo beatae recusandae, velit quibusdam, debitis vero ad nemo expedita dicta possimus temporibus id asperiores impedit?
+                    p.text.mb-1 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, quo beatae recusandae, velit quibusdam, debitis vero ad nemo expedita dicta possimus temporibus id asperiores impedit?
+
+        section.section.big-container
+            .section__topbar.flex.align-center.space-between    
+                h4.heading Recent Posts
+                a(href="/news").link.dark see all
+            .col-3.gap-4.mt-3
+                each article in articles 
+                    +article(article, 'news')
