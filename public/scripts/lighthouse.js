@@ -3,13 +3,10 @@ const galleryImages = gallery ? [...gallery.querySelectorAll("img")] : null;
 const lighthouseBtn = document.querySelector(".lighthouse__btn");
 const lighthouse = document.querySelector(".lighthouse");
 
-if (galleryImages.length > 0) {
-  galleryImages.forEach((el) => {
-    el.addEventListener("click", openLightHouse);
-  });
-}
-
-lighthouseBtn.addEventListener("click", closeLightHouse);
+galleryImages?.forEach((el) => {
+  el.addEventListener("click", openLightHouse);
+});
+lighthouseBtn?.addEventListener("click", closeLightHouse);
 
 function openLightHouse(e) {
   const clickedImg = e.currentTarget;
