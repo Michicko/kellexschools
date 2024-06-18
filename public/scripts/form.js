@@ -1,7 +1,7 @@
 const admissionForm = document.querySelector(".form__admission");
 const applicationBtn = document.querySelector(".application-btn");
 
-admissionForm.addEventListener("submit", submitForm);
+admissionForm?.addEventListener("submit", submitForm);
 
 async function submitForm(e) {
   e.preventDefault();

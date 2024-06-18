@@ -30,4 +30,7 @@ block content
                     each event in events 
                         +event(event)
             //- pagination for events
+            if events.length > 0
+                .pagination__container
+                    include ./partials/_pagination.pug
 
