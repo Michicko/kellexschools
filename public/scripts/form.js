@@ -1,10 +1,17 @@
-const admissionForm = document.querySelector(".form__admission");
-const applicationBtn = document.querySelector(".application-btn");
 
-admissionForm?.addEventListener("submit", submitForm);
+const sendApplication = async (data) => {
+  const response = await fetch("http://localhost:8001/api/v1/applications", {
+    method: "POST",
+    body: data,
+  });
 
-async function submitForm(e) {
+  return response;
+}
+
+export const submitForm = async (e) => {
   e.preventDefault();
+  const applicationBtn = document.querySelector(".application-btn");
+  const admissionForm = document.querySelector(".form__admission");
   const formData = new FormData(admissionForm);
 
   try {
@@ -16,13 +23,4 @@ async function submitForm(e) {
     console.log(error);
     applicationBtn.textContent = "Submit & Continue";
   }
-}
-
-async function sendApplication(data) {
-  const response = await fetch("http://localhost:8001/api/v1/applications", {
-    method: "POST",
-    body: data,
-  });
-
-  return response;
 }

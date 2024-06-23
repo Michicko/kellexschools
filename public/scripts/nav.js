@@ -1,22 +1,25 @@
 const hamburger_menu = document.querySelector(".hamburger-menu");
-const nav_item_btns = document.querySelectorAll(".nav__item-btn.nav__item-btn--mobile");
+const mobileNav = document.querySelector(".nav__mobile");
 
-hamburger_menu.addEventListener("click", toggleNav);
-nav_item_btns.forEach((el) => {
-  el.addEventListener("click", toggleNavItemChildren);
-});
-window.addEventListener('resize', resetNav);
+const toggleOverBodyOverflow = () => {
+  const isOpened = mobileNav.classList.contains('isMobileOpened');
+  if (isOpened) {
+    document.body.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "unset";
+  }
+};
 
-function toggleNav() {
-  const mobileNav = document.querySelector(".nav__mobile");
+export const toggleNav = () => {
   hamburger_menu.classList.toggle("nav__btn--active");
   mobileNav.classList.toggle("isMobileOpened");
-}
+  toggleOverBodyOverflow();
+};
 
-function toggleNavItemChildren(e) {
+export const toggleNavItemChildren = (e) => {
   const btn = e.currentTarget;
   const children = btn.parentElement.nextElementSibling;
-  btn.classList.toggle('rotated')
+  btn.classList.toggle("rotated");
   if (children.classList.contains("isOpened")) {
     children.classList.remove("isOpened");
     children.style.height = 0;
@@ -24,12 +27,11 @@ function toggleNavItemChildren(e) {
   }
   children.classList.add("isOpened");
   children.style.height = `${children.scrollHeight}px`;
-}
+};
 
-function resetNav(){
-  const mobileNav = document.querySelector(".nav__mobile");
-  if(window.innerWidth >= 1024){
+export const resetNav = () => {
+  if (window.innerWidth >= 1024) {
     hamburger_menu.classList.remove("nav__btn--active");
     mobileNav.classList.remove("isMobileOpened");
   }
-}
+};

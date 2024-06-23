@@ -1,16 +1,19 @@
-const pagination = document.querySelector(".pagination__box");
-const paginationBtns = pagination.querySelectorAll("button");
-let totalPages = 4;
-let page = 1;
-let dotsAfer = 3;
+const selectPageNumber = (e) => {
+  page = e.target.textContent * 1;
+  updatePage(totalPages, page);
+}
 
-paginationBtns.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    updatePage(totalPages, page);
-  });
-});
+const nextPage = () => {
+  page = page + 1;
+  updatePage(totalPages, page);
+}
 
-function updatePage(totalPages, page) {
+const prevPage = () => {
+  page = page - 1;
+  updatePage(totalPages, page);
+}
+
+export const updatePage = (totalPages = 4, page = 1) => {
   let btns = ``;
   let beforePages = page - 1;
   let afterPages = page + 1;
@@ -44,21 +47,6 @@ function updatePage(totalPages, page) {
   }
 
   pagination.innerHTML = btns;
-}
+};
 
-function selectPageNumber(e) {
-  page = e.target.textContent * 1;
-  updatePage(totalPages, page);
-}
 
-function nextPage() {
-  page = page + 1;
-  updatePage(totalPages, page);
-}
-
-function prevPage() {
-  page = page - 1;
-  updatePage(totalPages, page);
-}
-
-updatePage(totalPages, page);
