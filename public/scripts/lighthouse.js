@@ -1,14 +1,14 @@
-const gallery = document.querySelector(".gallery");
-const galleryImages = gallery ? [...gallery.querySelectorAll("img")] : null;
-const lighthouseBtn = document.querySelector(".lighthouse__btn");
 const lighthouse = document.querySelector(".lighthouse");
 
-galleryImages?.forEach((el) => {
-  el.addEventListener("click", openLightHouse);
-});
-lighthouseBtn?.addEventListener("click", closeLightHouse);
+const toggleBodyOverflow = () => {
+  if (lighthouse.classList.contains("lighthouse--open")) {
+    document.body.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "unset";
+  }
+}
 
-function openLightHouse(e) {
+export const openLightHouse = (e) => {
   const clickedImg = e.currentTarget;
   const lighthouseImg = document.querySelector(".lighthouse__img");
   lighthouseImg.setAttribute("src", clickedImg.getAttribute("src"));
@@ -17,15 +17,9 @@ function openLightHouse(e) {
   toggleBodyOverflow();
 }
 
-function closeLightHouse() {
+export const closeLightHouse = () => {
   lighthouse.classList.remove("lighthouse--open");
   toggleBodyOverflow();
 }
 
-function toggleBodyOverflow() {
-  if (lighthouse.classList.contains("lighthouse--open")) {
-    document.body.style.overflow = "hidden";
-  } else {
-    document.body.style.overflow = "unset";
-  }
-}
+

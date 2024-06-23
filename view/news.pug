@@ -11,4 +11,6 @@ block content
                 .col-3.gap-4
                     each article in articles 
                         +article(article, 'news')
-            //- pagination
+            if articles.length > 0
+                .pagination__container
+                    include ./partials/_pagination.pug
